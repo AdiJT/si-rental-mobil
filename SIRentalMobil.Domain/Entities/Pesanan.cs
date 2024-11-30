@@ -14,5 +14,5 @@ public class Pesanan : Entity
 
     public User Penyewa { get; set; }
     public Mobil Mobil { get; set; }
-    public Pembayaran Pembayaran { get; set; }
+    public Pembayaran? Pembayaran { get; set; }
 }
