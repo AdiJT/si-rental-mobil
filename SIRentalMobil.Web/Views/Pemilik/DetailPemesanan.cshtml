@@ -1,5 +1,184 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<section class="section__container pemesanan_container">
+    <div class="sisi_kiri_pemesanan col-md-8">
+        <!-- Utama Mobil -->
+        <div class="utama_mobil">
+            <div class="foto_mobil col-md-5">
+                <img src="~/assets/deals-12.png" />
+            </div>
+            <div class="detail_mobil col-md-7">
+                <div class="tipe_mobil">
+                    <h3>Toyota Fortuner</h3>
+                </div>
+                <div class="spesifikasi_mobil">
+                    <div class="left">
+                        <div class="item">
+                            <i class="ri-user-line icon"></i>
+                            <p>7 Orang</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-calendar-line icon"></i>
+                            <p>2018</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-dashboard-line icon"></i>
+                            <p>2100 CC</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-gas-station-line icon"></i>
+                            <p>Pertamax</p>
+                        </div>
+                    </div>
+
+                    <!-- Kolom Kanan -->
+                    <div class="right">
+                        <div class="item">
+                            <i class="ri-barcode-line icon"></i>
+                            <p>DH1234</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-palette-line icon"></i>
+                            <p>Hitam</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-steering-line icon"></i>
+                            <p>Manual</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-road-map-line icon"></i>
+                            <p>Jarak tempuh tidak terbatas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Informasi Penyewa -->
+        <div class="informasi_penyewa_pemesanan">
+            <div class="judul_informasi_penyewa_pemesanan">
+                <h3>Data Pribadi Penyewa</h3>
+            </div>
+            <form>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="Fridolin Gesira" required />
+                    <label for="kode">Nama Lengkap*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="082144711486" required />
+                    <label for="kode">Nomor Telepon*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Alamat*</label>
+                </div>
+            </form>
+        </div>
+        <!-- Informasi Penyewa -->
+        <div class="apakah_fasilitas_sopir">
+            <div class="judul_apakah_fasilitas_sopir">
+                <h3>Fasilitas Sopir</h3>
+            </div>
+            <form>
+                <div class="radio_grup">
+                    <input type="radio" id="ya" name="pilihan" value="ya">
+                    <label class="ps-1 pe-2" for="ya">Tidak Menggunakan Sopir</label><br>
+                    <input class="ps-1" type="radio" id="bukan" name="pilihan" value="bukan" checked>
+                    <label class="ps-1" for="bukan">Menggunakan Sopir</label>
+                </div>
+            </form>
+        </div>
+        <!-- Informasi Penjemputan -->
+        <div class="informasi_penjemputan_pemesanan">
+            <div class="judul_informasi_penjemputan_pemesanan">
+                <h3>Detail Penjemputan</h3>
+            </div>
+            <form>
+                <label>Tanggal Penjemputan</label>
+                <div class="input_grup">
+                    <input type="date" name="tanggalLahir" value="2024-11-18" readonly required />
+                    <label for="tanggalLahir"></label>
+                </div>
+                <label>Jam Penjemputan</label>
+                <div class="input_grup">
+                    <input type="text" id="jam" name="jam" value="12:00" readonly required />
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Alamat*</label>
+                </div>
+                <label>Keterangan Tambahan</label>
+                <div class="input_grup">
+                    <textarea name="alamat" rows="4" required></textarea>
+                </div>
+
+            </form>
+        </div>
+        <!-- Informasi Pengembalian -->
+        <div class="informasi_pengembalian_pemesanan">
+            <div class="judul_informasi_pengembalian_pemesanan">
+                <h3>Detail Pengembalian</h3>
+            </div>
+            <form>
+                <label>Tanggal Pengembalian</label>
+                <div class="input_grup">
+                    <input type="date" name="tanggalLahir" value="2024-11-18" readonly required />
+                    <label for="tanggalLahir"></label>
+                </div>
+                <label>Jam Pengembalian</label>
+                <div class="input_grup">
+                    <input type="text" id="jam" name="jam" value="12:00" readonly required />
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Alamat*</label>
+                </div>
+                <label>Keterangan Tambahan</label>
+                <div class="input_grup">
+                    <textarea name="alamat" rows="4" required></textarea>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="sisi_kanan_pemesanan col-md-4">
+        <div class="pengsticky">
+            <div class="rincian_pesanan_detail_mobil">
+                <div class="judul_rincian_pesanan">
+                    <h3>Rincian Pesanan</h3>
+                </div>
+                <div class="isi_rincian_pesanan">
+                    <div class="item">
+                        <i class="ri-map-pin-line"></i>
+                        <p>Dalam Kota</p>
+                    </div>
+                    <div class="item">
+                        <i class="ri-time-line"></i>
+                        <p>2 hari Full</p>
+                    </div>
+                    <div class="item">
+                        <i class="ri-calendar-todo-line"></i>
+                        <p>12 Desember 2024 - 24 Desember 2024</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rincian_harga_detail_mobil">
+                <div class="judul_rincian_harga">
+                    <h3>Rincian Pesanan</h3>
+                </div>
+                <div class="isi_rincian_harga">
+                    <h5>Harga untuk 2 hari:</h5>
+                    <div class="fasilitas_sopir mb-1">
+                        <h6>Tanpa Sopir:</h6>
+                        <p>Rp.500.000</p>
+                    </div>
+                    <div class="fasilitas_sopir">
+                        <h6>Dengan Sopir:</h6>
+                        <p>Rp.700.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tombol_lanjutkan_pemesanan">
+                <a class="btn btn-hijau mb-1" href="">Terima Pemesanan</a>
+                <a class="btn btn-merah" href="">Tolak Pemesanan</a>
+            </div>
+        </div>
+    </div>
+</section>

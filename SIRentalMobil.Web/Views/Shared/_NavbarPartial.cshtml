@@ -13,13 +13,13 @@
     </div>
     <ul class="nav__links" id="nav-links">
         <li><a asp-area="" asp-controller="Home" asp-action="Index" >Beranda</a></li>
-        <li><a href="">Dashboard Pemilik</a></li>
+        <li><a asp-area="" asp-controller="Pemilik" asp-action="Index" >Dashboard Pemilik</a></li>
         <li><a href="">Daftar</a></li>
         <li><a href="">Masuk</a></li>
     </ul>
     <div class="nav__btns">
-        <a class="px-3" href="">Masuk</a>
-        <a class="btn" href="">Daftar</a>
+        <a asp-area="" asp-controller="Home" asp-action="Login" class="px-3">Masuk</a>
+        <a asp-area="" asp-controller="Home" asp-action="Daftar" class="btn">Daftar</a>
     </div>
 </nav>
 <!--======================================================= AKHIR NAVBAR =============================================-->

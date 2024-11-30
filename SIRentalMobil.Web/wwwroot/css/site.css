@@ -147,6 +147,12 @@ img {
 a {
     text-decoration: none;
     transition: 0.3s;
+    color: var(--text-dark);
+}
+
+h3{
+    font-size: 1.17em;
+    font-weight: bold;
 }
 
 p {
@@ -809,7 +815,8 @@ input[type="radio"] {
     margin-bottom: 20px;
 }
 
-.isi_statistik {
+.isi_statistik a{
+    display: inline-flex;
 }
 
 .tambah_container {
@@ -887,6 +894,7 @@ input[type="radio"] {
 .tambah_mobil_container {
     display: flex;
     padding: 0rem 1rem !important;
+    gap: 20px;
 }
 
 
@@ -906,14 +914,19 @@ input[type="radio"] {
 
 /* Sisi Kanan */
 
+.button_tambah_mobil a {
+    display: flex;
+    justify-content: center;
+}
+
 
 /*=============================================================================================================================*\
   #HALAMAN PEMBAYARAN
 \*=============================================================================================================================*/
-
 .pembayaran__container {
     padding: 0rem 1rem !important;
     display: flex;
+    gap: 20px;
 }
 
 .sisi_kiri_pembayaran .radio_grup {
@@ -922,4 +935,38 @@ input[type="radio"] {
 
 .radio_grup_individual {
     margin-bottom: 8px;
+}
+
+
+
+/* =============================== DIATAS 540px =============================== */
+@media (min-width: 540px) {
+    
+    /*=============================================================================================================================*\
+    #HALAMAN DASHBOARD PEMILIK
+    \*=============================================================================================================================*/
+    .pemilik_mobil_content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =============================== DIATAS 768px =============================== */
+@media (min-width: 768px) {
+
+    /*=============================================================================================================================*\
+    #HALAMAN DASHBOARD PEMILIK
+    \*=============================================================================================================================*/
+    .pemilik_mobil_content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =============================== DIATAS 1024px =============================== */
+@media (min-width: 1024px) {
+    /*=============================================================================================================================*\
+    #HALAMAN DASHBOARD PEMILIK
+    \*=============================================================================================================================*/
+    .pemilik_mobil_content {
+        gap: 1.5rem;
+    }
 }
