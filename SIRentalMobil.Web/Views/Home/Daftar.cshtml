@@ -1,33 +1,58 @@
-﻿<section class="section__container daftar_container">
+﻿@using SIRentalMobil.Domain.Entities
+@model DaftarVM
+
+<section class="section__container daftar_container">
+    <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
+
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Nomor Induk Kependudukan*</label>
+        <input asp-for="@Model.NIK"/>
+        <label asp-for="@Model.NIK">Nomor Induk Kependudukan*</label>
+        <span asp-validation-for="@Model.NIK" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Nama Lengkap*</label>
+        <input asp-for="@Model.Nama" />
+        <label asp-for="@Model.Nama">Nama Lengkap*</label>
+        <span asp-validation-for="@Model.Nama" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Nomor Telepon*</label>
+        <input asp-for="@Model.NoHP"/>
+        <label asp-for="@Model.NoHP">Nomor Telepon*</label>
+        <span asp-validation-for="@Model.NoHP" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Alamat*</label>
+        <textarea asp-for="@Model.Alamat" class="form-control"></textarea>
+        <label asp-for="@Model.Alamat">Alamat*</label>
+        <span asp-validation-for="@Model.Alamat" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Email*</label>
+        <input asp-for="@Model.Email" type="email"/>
+        <label asp-for="@Model.Email">Email*</label>
+        <span asp-validation-for="@Model.Email" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Password*</label>
+        <input asp-for="@Model.Password" type="password"/>
+        <label asp-for="@Model.Password">Password*</label>
+        <span asp-validation-for="@Model.Password" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input type="text" name="kode" value="" required />
-        <label for="kode">Konfirmasi Password*</label>
+        <input asp-for="@Model.PasswordConfirmation" type="password"/>
+        <label asp-for="@Model.PasswordConfirmation">Konfirmasi Password*</label>
+        <span asp-validation-for="@Model.PasswordConfirmation" class="form-text text-danger"></span>
     </div>
+    <div class="input_grup">
+        <select asp-for="@Model.Role" class="form-control">
+            <option value="@UserRoles.Penyewa">@UserRoles.Penyewa</option>
+            <option value="@UserRoles.Pemilik">@UserRoles.Pemilik</option>
+        </select>
+        <label asp-for="@Model.Role">Konfirmasi Password*</label>
+        <span asp-validation-for="@Model.Role" class="form-text text-danger"></span>
+    </div>
+
     <div class="button_kanan">
-        <a class="btn" href="">Daftar</a>
+        <button class="btn" type="submit">Daftar</button>
     </div>
 </section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
