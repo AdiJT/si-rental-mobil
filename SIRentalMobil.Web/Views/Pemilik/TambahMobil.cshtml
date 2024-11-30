@@ -1,5 +1,136 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<section class="section__container judul__detail__mobil__container">
+    <div class="breadcrumbs">
+        <a href="dashboard_pemilik.html">Dashboard Pemilik</a>
+        <i class="ri-arrow-right-s-line separator"></i>
+        <span class="current">Tambah Mobil</span>
+    </div>
+
+    <div class="judul_halaman">
+        <h2>Tambah Mobil</h2>
+    </div>
+</section>
+
+<section class="section__container tambah_mobil_container">
+    <div class="sisi_kiri_tambah_mobil col-md-6">
+        <!-- Informasi Penyewa -->
+        <div class="informasi_tambah_mobil">
+            <div class="judul_informasi_tambah_mobil">
+                <h3>Informasi Mobil</h3>
+            </div>
+            <form>
+                <div class="input_grup">
+                    <input type="text" name="kode" required />
+                    <label for="kode">Merk Mobil*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" required />
+                    <label for="kode">Tipe Mobil*</label>
+                </div>
+                <label>Foto Mobil</label>
+                <div class="input_grup">
+                    <input type="file" name="foto_mobil" id="foto_mobil" accept="image/*" required />
+                    <label for="foto_mobil"></label>
+                </div>
+                <div class="input_grup">
+                    <input type="number" name="kode" value="" required />
+                    <label for="kode">Jumlah Penumpang*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Plat Nomor*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="number" name="kode" value="" required />
+                    <label for="kode">Tahun Keluaran*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Warna Dominan Mobil*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="number" name="kode" value="" required />
+                    <label for="kode">Kapasitas Mesin*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Jenis Transmisi*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Jenis Bahan Bakar*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Ketentuan Jarak Tempuh*</label>
+                </div>
+                <label>Deskripsi Tambahan</label>
+                <div class="input_grup">
+                    <textarea name="alamat" rows="4" required></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="sisi_kanan_tambah_mobil col-md-6">
+        <!-- Informasi Penyewa -->
+        <div class="informasi_tambah_mobil">
+            <div class="judul_informasi_tambah_mobil">
+                <h3>Informasi Pemesanan</h3>
+            </div>
+            <form>
+
+                <label>Area Pemakaian</label>
+                <div class="radio_grup mb-2 mt-1">
+                    <input type="radio" id="dalam_kota" name="area_pemakaian" value="dalam_kota">
+                    <label class="ps-1 pe-2" for="dalam_kota">Dalam Kota</label><br>
+                    <input class="ps-1" type="radio" id="luar_kota" name="area_pemakaian" value="luar_kota" checked>
+                    <label class="ps-1" for="luar_kota">Luar Kota</label>
+                </div>
+
+                <label>Batas Waktu Pemesanan</label>
+                <div class="input_grup">
+                    <input type="text" id="datepicker" placeholder="Pilih tanggal" required />
+                    <label for="datepicker"></label>
+                </div>
+
+                <label>Fasilitas Sopir</label>
+                <div class="radio_grup mb-1 mt-1">
+                    <input type="radio" id="dengan_sopir" name="fasilitas_sopir" value="dengan_sopir">
+                    <label class="ps-1 pe-2" for="dengan_sopir">Dengan Sopir</label><br>
+                    <input class="ps-1" type="radio" id="tanpa_sopir" name="fasilitas_sopir" value="tanpa_sopir" checked>
+                    <label class="ps-1" for="tanpa_sopir">Tanpa Sopir</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" required />
+                    <label for="kode">Harga tanpa Sopir*</label>
+                </div>
+            </form>
+        </div>
+        <!-- Informasi Penyewa -->
+        <div class="informasi_tambah_mobil">
+            <div class="judul_informasi_tambah_mobil">
+                <h3>Informasi Sopir</h3>
+            </div>
+            <form>
+                <div class="input_grup">
+                    <input type="text" name="kode" required />
+                    <label for="kode">Harga dengan Sopir*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" required />
+                    <label for="kode">Nama Lengkap*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" required />
+                    <label for="kode">Nomor Telepon*</label>
+                </div>
+                <div class="input_grup">
+                    <input type="text" name="kode" value="" required />
+                    <label for="kode">Alamat*</label>
+                </div>
+            </form>
+        </div>
+        <div class="button_tambah_mobil">
+            <a class="btn">Tambah Mobil</a>
+        </div>
+    </div>
+</section>

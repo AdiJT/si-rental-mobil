@@ -1,5 +1,197 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<section class="section__container statistik__container">
+    <div class="judul_statistik">
+        <h3>Tambah Mobil yang ingin disewakan</h3>
+    </div>
+    <div class="isi_statistik">
+        <a asp-area="" asp-controller="Pemilik" asp-action="TambahMobil" >
+            <div class="tambah_container">
+                <i class="ri-add-line"></i>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="section__container daftar_mobil_container">
+    <div class="judul_daftar_mobil">
+        <h3>Daftar Mobil yang disewakan</h3>
+    </div>
+    <div class="pemilik_mobil_content">
+        <!-- Card Mobil -->
+        <div class="deals__card">
+            <img src="assets/deals-12.png" alt="deals" />
+            <h4>Toyota Fortuner</h4>
+            <div class="deals__card__grid">
+                <div>
+                    <span><i class="ri-group-line"></i></span> 7 Orang
+                </div>
+                <div>
+                    <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                </div>
+                <div>
+                    <span><i class="ri-calendar-2-line"></i></span> 2018
+                </div>
+                <div>
+                    <span><i class="ri-gas-station-line"></i></span> Pertamax
+                </div>
+            </div>
+            <hr />
+            <div class="deals__card__footer">
+                <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                <a href="detail_mobil_pemilik.html">
+                    Lihat Detail
+                    <span><i class="ri-arrow-right-line"></i></span>
+                </a>
+            </div>
+        </div>
+        <!-- Akhir Card Mobil -->
+        <!-- Card Mobil -->
+        <div class="deals__card">
+            <img src="assets/deals-12.png" alt="deals" />
+            <h4>Toyota Fortuner</h4>
+            <div class="deals__card__grid">
+                <div>
+                    <span><i class="ri-group-line"></i></span> 7 Orang
+                </div>
+                <div>
+                    <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                </div>
+                <div>
+                    <span><i class="ri-calendar-2-line"></i></span> 2018
+                </div>
+                <div>
+                    <span><i class="ri-gas-station-line"></i></span> Pertamax
+                </div>
+            </div>
+            <hr />
+            <div class="deals__card__footer">
+                <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                <a href="detail_mobil_pemilik.html">
+                    Lihat Detail
+                    <span><i class="ri-arrow-right-line"></i></span>
+                </a>
+            </div>
+        </div>
+        <!-- Akhir Card Mobil -->
+    </div>
+</section>
+
+
+<section class="section__container pesanan__masuk__container">
+    <div class="judul_pesanan_masuk">
+        <h3>Pesanan Masuk</h3>
+    </div>
+    <div class="">
+        <table class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Waktu Pesanan</th>
+                    <th>Nama Pemesan</th>
+                    <th>Tipe Mobil</th>
+                    <th>Detail Pemesanan</th>
+                    <th>Konfirmasi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>29 November 2024, 10:30</td>
+                    <td>Andi Saputra</td>
+                    <td>Toyota Fortuner</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesan</a></td>
+                    <td>
+                        <i class="ri-check-line btn-action approve"></i>
+                        <i class="ri-close-line btn-action reject"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>29 November 2024, 12:45</td>
+                    <td>Siti Rahmawati</td>
+                    <td>Honda CR-V</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesan</a></td>
+                    <td>
+                        <i class="ri-check-line btn-action approve"></i>
+                        <i class="ri-close-line btn-action reject"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<section class="section__container berjalan__container">
+    <div class="judul_riwayat">
+        <h3>Sedang Berjalan</h3>
+    </div>
+    <div class="">
+        <table class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Waktu Pesanan</th>
+                    <th>Nama Pemesan</th>
+                    <th>Tipe Mobil</th>
+                    <th>Detail Pemesanan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>29 November 2024, 10:30</td>
+                    <td>Andi Saputra</td>
+                    <td>Toyota Fortuner</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+<section class="section__container riwayat__container">
+    <div class="judul_riwayat">
+        <h3>Riwayat Pesanan Mobil</h3>
+    </div>
+    <div class="">
+        <table class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Waktu Pesanan</th>
+                    <th>Nama Pemesan</th>
+                    <th>Tipe Mobil</th>
+                    <th>Detail Pemesanan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>29 November 2024, 10:30</td>
+                    <td>Andi Saputra</td>
+                    <td>Toyota Fortuner</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                </tr>
+                <tr>
+                    <td>29 November 2024, 12:45</td>
+                    <td>Siti Rahmawati</td>
+                    <td>Honda CR-V</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                </tr>
+                <tr>
+                    <td>28 November 2024, 15:20</td>
+                    <td>Budi Santoso</td>
+                    <td>Mitsubishi Pajero</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                </tr>
+                <tr>
+                    <td>28 November 2024, 18:00</td>
+                    <td>Dewi Kartika</td>
+                    <td>Hyundai Santa Fe</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                </tr>
+                <tr>
+                    <td>27 November 2024, 09:15</td>
+                    <td>Hendra Gunawan</td>
+                    <td>Isuzu MU-X</td>
+                    <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
