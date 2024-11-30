@@ -18,4 +18,9 @@ public class MobilController : Controller
     {
         return View();
     }
+
+    public IActionResult Tambah()
+    {
+        return View();
+    }
 }

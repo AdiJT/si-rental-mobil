@@ -11,9 +11,10 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
-
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
+        modelBuilder.SeedingData();
     }
 
     public DbSet<User> TblUser { get; set; }

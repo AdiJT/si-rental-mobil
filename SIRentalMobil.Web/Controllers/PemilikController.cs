@@ -9,11 +9,6 @@ public class PemilikController : Controller
         return View();
     }
 
-    public IActionResult TambahMobil()
-    {
-        return View();
-    }
-
     public IActionResult DetailPemesanan()
     {
         return View();
