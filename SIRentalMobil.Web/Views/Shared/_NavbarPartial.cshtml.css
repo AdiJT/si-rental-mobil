@@ -118,14 +118,6 @@ nav {
             color: var(--text-dark);
         }
 
-        .nav__links li:last-child {
-            display: none;
-        }
-
-        .nav__links li:nth-last-child(2) {
-            display: none;
-        }
-
     .nav__btns {
         flex: 1;
         display: flex;

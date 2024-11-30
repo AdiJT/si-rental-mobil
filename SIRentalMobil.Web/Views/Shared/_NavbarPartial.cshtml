@@ -1,4 +1,12 @@
-﻿<!--======================================================= NAVBAR ====================================================-->
+﻿@using SIRentalMobil.Domain.Entities
+@using SIRentalMobil.Web.Authentication
+@inject ISignInManager SignInManager
+
+@{
+    var user = await SignInManager.GetUser();
+}
+
+<!--======================================================= NAVBAR ====================================================-->
 <nav>
     <div class="nav__header">
         <div class="nav__logo">
@@ -12,14 +20,33 @@
         </div>
     </div>
     <ul class="nav__links" id="nav-links">
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" >Beranda</a></li>
-        <li><a asp-area="" asp-controller="Pemilik" asp-action="Index" >Dashboard Pemilik</a></li>
-        <li><a href="">Daftar</a></li>
-        <li><a href="">Masuk</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Beranda</a></li>
+        @if(user is not null)
+        {
+            if(user.Role == UserRoles.Pemilik)
+            {
+                <li><a asp-area="" asp-controller="Pemilik" asp-action="Index">Dashboard</a></li>
+            }
+            else
+            {
+                <li><a asp-area="" asp-controller="Penyewa" asp-action="Index">Dashboard</a></li>
+            }
+        }
     </ul>
-    <div class="nav__btns">
-        <a asp-area="" asp-controller="Home" asp-action="Login" class="px-3">Masuk</a>
-        <a asp-area="" asp-controller="Home" asp-action="Daftar" class="btn">Daftar</a>
-    </div>
+    @if (user is null)
+    {
+        <div class="nav__btns">
+            <a asp-area="" asp-controller="Home" asp-action="Login" class="px-3">Masuk</a>
+            <a asp-area="" asp-controller="Home" asp-action="Daftar" class="btn">Daftar</a>
+        </div>
+    } 
+    else
+    {
+        <div class="nav__btns">
+            <form asp-action="Logout" asp-controller="Home" asp-area="">
+                <button class="btn">Logout</button>
+            </form>
+        </div>
+    }
 </nav>
 <!--======================================================= AKHIR NAVBAR =============================================-->

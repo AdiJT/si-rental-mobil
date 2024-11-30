@@ -5,7 +5,7 @@
     <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
 
     <div class="input_grup">
-        <input asp-for="@Model.NIK"/>
+        <input asp-for="@Model.NIK" />
         <label asp-for="@Model.NIK">Nomor Induk Kependudukan*</label>
         <span asp-validation-for="@Model.NIK" class="form-text text-danger"></span>
     </div>
@@ -15,37 +15,39 @@
         <span asp-validation-for="@Model.Nama" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input asp-for="@Model.NoHP"/>
+        <input asp-for="@Model.NoHP" />
         <label asp-for="@Model.NoHP">Nomor Telepon*</label>
         <span asp-validation-for="@Model.NoHP" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <textarea asp-for="@Model.Alamat" class="form-control"></textarea>
+        <input asp-for="@Model.Alamat" class="form-control" />
         <label asp-for="@Model.Alamat">Alamat*</label>
         <span asp-validation-for="@Model.Alamat" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input asp-for="@Model.Email" type="email"/>
+        <input asp-for="@Model.Email" type="email" />
         <label asp-for="@Model.Email">Email*</label>
         <span asp-validation-for="@Model.Email" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input asp-for="@Model.Password" type="password"/>
+        <input asp-for="@Model.Password" type="password" />
         <label asp-for="@Model.Password">Password*</label>
         <span asp-validation-for="@Model.Password" class="form-text text-danger"></span>
     </div>
     <div class="input_grup">
-        <input asp-for="@Model.PasswordConfirmation" type="password"/>
+        <input asp-for="@Model.PasswordConfirmation" type="password" />
         <label asp-for="@Model.PasswordConfirmation">Konfirmasi Password*</label>
         <span asp-validation-for="@Model.PasswordConfirmation" class="form-text text-danger"></span>
     </div>
-    <div class="input_grup">
-        <select asp-for="@Model.Role" class="form-control">
-            <option value="@UserRoles.Penyewa">@UserRoles.Penyewa</option>
-            <option value="@UserRoles.Pemilik">@UserRoles.Pemilik</option>
-        </select>
-        <label asp-for="@Model.Role">Konfirmasi Password*</label>
-        <span asp-validation-for="@Model.Role" class="form-text text-danger"></span>
+    <div class="row">
+        <div class="col">
+            <label asp-for="@Model.Role" class="form-label"></label>
+            <select asp-for="@Model.Role" class="form-control">
+                <option value="@UserRoles.Penyewa">@UserRoles.Penyewa</option>
+                <option value="@UserRoles.Pemilik">@UserRoles.Pemilik</option>
+            </select>
+            <span asp-validation-for="@Model.Role" class="form-text text-danger"></span>
+        </div>
     </div>
 
     <div class="button_kanan">
