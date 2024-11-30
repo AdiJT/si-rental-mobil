@@ -1,5 +1,570 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Hasil Pencarian";
+}
+
+<!--======================================================= FILTER MOBIL =======================================================-->
+<section class="header__form pencarian">
+    <form class="pencarian" action="/">
+        <div class="input__group">
+            <label for="facility">Fasilitas Sopir</label>
+            <select name="facility" id="facility">
+                <option value="all">All in</option>
+                <option value="with-driver">Dengan Sopir</option>
+                <option value="without-driver">Tanpa Sopir</option>
+            </select>
+        </div>
+        <div class="input__group">
+            <label for="area">Area Perjalanan</label>
+            <select name="area" id="area">
+                <option value="city">Dalam Kota</option>
+                <option value="out-of-city">Luar Kota</option>
+            </select>
+        </div>
+        <div class="input__group">
+            <label for="start-date">Tanggal Mulai</label>
+            <input type="text" id="start-date" placeholder="Pilih tanggal mulai" />
+        </div>
+        <div class="input__group">
+            <label for="end-date">Tanggal Akhir</label>
+            <input type="text" id="end-date" placeholder="Pilih tanggal akhir" />
+        </div>
+        <a href="pencarian.html" class="btn">Cari <i class="ri-search-line"></i></a>
+    </form>
+</section>
+<!--======================================================= AKHIR FILTER MOBIL =======================================================-->
+<!--======================================================= MOBIL POPULER =======================================================-->
+<section class="deals" id="deals">
+    <div class="section__container deals__container">
+        <div class="judul_deals">
+            <h3>Tersedia 20 Mobil</h3>
+        </div>
+        <div class="deals__tabs">
+            <button class="btn active" data-id="Toyota">Toyota</button>
+            <button class="btn" data-id="Daihatsu">Daihatsu</button>
+            <button class="btn" data-id="Honda">Honda</button>
+            <button class="btn" data-id="Suzuki">Suzuki</button>
+            <button class="btn" data-id="Lainnya">Lainnya</button>
+        </div>
+        <!---------------------- Tipe/Jenis ---------------------->
+        <div id="Toyota" class="tab__content active">
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a asp-area="" asp-controller="Mobil" asp-action="Detail" >
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+        </div>
+        <div id="Daihatsu" class="tab__content">
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+        </div>
+        <div id="Honda" class="tab__content">
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+        </div>
+        <div id="Suzuki" class="tab__content">
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+        </div>
+        <div id="Lainnya" class="tab__content">
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+            <!-- Card Mobil -->
+            <div class="deals__card">
+                <img src="~/assets/deals-12.png" alt="deals" />
+                <h4>Toyota Fortuner</h4>
+                <div class="deals__card__grid">
+                    <div>
+                        <span><i class="ri-group-line"></i></span> 7 Orang
+                    </div>
+                    <div>
+                        <span><i class="ri-speed-up-line"></i></span> 2400 CC
+                    </div>
+                    <div>
+                        <span><i class="ri-calendar-2-line"></i></span> 2018
+                    </div>
+                    <div>
+                        <span><i class="ri-gas-station-line"></i></span> Pertamax
+                    </div>
+                </div>
+                <hr />
+                <div class="deals__card__footer">
+                    <h3>Rp500.000<span>/ 2 Hari</span></h3>
+                    <a href="detail_mobil.html">
+                        Lihat Detail
+                        <span><i class="ri-arrow-right-line"></i></span>
+                    </a>
+                </div>
+            </div>
+            <!-- Akhir Card Mobil -->
+        </div>
+    </div>
+</section>
+<!--======================================================= AKHIR MOBIL POPULER =======================================================-->
+
+
+@section Scripts {
+    <script src="~/js/tabs.js" asp-append-version="true"></script>
 }

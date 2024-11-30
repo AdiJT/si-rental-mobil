@@ -56,6 +56,7 @@
 }
 
     .btn:hover {
+        color: var(--white);
         background-color: var(--primary-color-dark);
     }
 
@@ -151,6 +152,7 @@ a {
 p {
     font-size: 15px;
     color: var(--text-light);
+    margin-bottom: 0;
 }
 
 ul {
@@ -340,4 +342,584 @@ input[type="radio"] {
 }
 
 
-/*-----------------------------------------------*\ #HALAMAN LAIN \*-----------------------------------------------*/ 
+/*-----------------------------------------------*\ CARD MOBIL \*-----------------------------------------------*/
+
+/*-----------------------------------*\
+  #MOBIL POPULER
+\*-----------------------------------*/
+.deals {
+    background-color: var(--extra-light);
+}
+
+.judul_deals {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.deals__container .section__description {
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+}
+
+.deals__tabs {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+    .deals__tabs .btn {
+        font-weight: 600;
+        color: var(--primary-color-dark);
+        background-color: var(--white);
+    }
+
+        .deals__tabs .btn.active {
+            color: var(--white);
+            background-color: var(--primary-color);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+.deals__container .tab__content {
+    display: none;
+    gap: 1rem;
+    animation: fadeEffect 1s;
+}
+
+    .deals__container .tab__content.active {
+        display: grid;
+    }
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.deals__card {
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+    .deals__card img {
+        margin-bottom: 1rem;
+    }
+
+.deals__rating {
+    margin-bottom: 1rem;
+    color: goldenrod;
+}
+
+    .deals__rating span:last-child {
+        color: var(--text-light);
+    }
+
+.deals__card h4 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.deals__card__grid {
+    margin-bottom: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+    .deals__card__grid div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-light);
+    }
+
+        .deals__card__grid div span {
+            font-size: 1rem;
+        }
+
+.deals__card__footer {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+    .deals__card__footer h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+        .deals__card__footer h3 span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+    .deals__card__footer a {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+        .deals__card__footer a:hover {
+            color: var(--primary-color-dark);
+        }
+
+/* =============================== DIATAS 540px =============================== */
+@media (min-width: 540px) {
+    /*-----------------------------------*\
+    #MOBIL POPULER
+    \*-----------------------------------*/
+    .deals__container .tab__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =============================== DIATAS 768px =============================== */
+@media (min-width: 768px) {
+    /*-----------------------------------*\
+    #MOBIL POPULER
+    \*-----------------------------------*/
+    .deals__container .tab__content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =============================== DIATAS 1024px =============================== */
+@media (min-width: 1024px) {
+    /*-----------------------------------*\
+    #MOBIL POPULER
+    \*-----------------------------------*/
+    .deals__container .tab__content {
+        gap: 1.5rem;
+    }
+
+    .deals__card {
+        padding: 1.5rem;
+    }
+}
+
+/*-----------------------------------------------*\ HALAMAN REUSABLE LAIN \*-----------------------------------------------*/
+
+/*=============================================================================================================================*\
+  #HALAMAN DETAIL MOBIL
+\*=============================================================================================================================*/
+
+
+.judul__detail__mobil__container {
+    padding: 0rem 1rem 1rem;
+}
+
+.detail_mobil_container {
+    display: flex;
+    padding: 2rem 1rem;
+    gap: 20px;
+}
+
+/*-----------------------------------*\
+  #SISI KIRI
+\*-----------------------------------*/
+.sisi_kiri_detail_mobil {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Utama Mobil */
+.utama_mobil {
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.detail_mobil .spesifikasi_mobil {
+    display: flex;
+    gap: 15px;
+}
+
+.detail_mobil .tipe_mobil {
+    margin-bottom: 10px;
+}
+
+.spesifikasi_mobil .left,
+.spesifikasi_mobil .right {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.spesifikasi_mobil .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    .spesifikasi_mobil .item .icon {
+        font-size: 15px;
+        color: #333;
+    }
+
+/* Deskripsi Tambahan Mobil */
+.sisi_kiri_detail_mobil .deskripsi_tambahan_mobil {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.deskripsi_tambahan_mobil .isi_deskripsi_tambahan_mobil {
+    margin-top: 10px;
+}
+
+/* Informasi Pemilik Mobil */
+.sisi_kiri_detail_mobil .informasi_pemilik_mobil {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.informasi_pemilik_mobil .group_informasi_pemilik {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+    .informasi_pemilik_mobil .group_informasi_pemilik p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .informasi_pemilik_mobil .group_informasi_pemilik h5 {
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+    }
+
+/* Informasi Sopir Mobil */
+.sisi_kiri_detail_mobil .informasi_sopir_mobil {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.informasi_sopir_mobil .group_informasi_sopir {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+    .informasi_sopir_mobil .group_informasi_sopir p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    .informasi_sopir_mobil .group_informasi_sopir h5 {
+        font-size: 15px;
+        font-weight: 500;
+        color: #222;
+    }
+
+/*-----------------------------------*\
+  #SISI KANAN
+\*-----------------------------------*/
+.sisi_kanan_detail_mobil {
+    padding: 10px;
+}
+
+/* Rincian Pesanan */
+.rincian_pesanan_detail_mobil {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+    .rincian_pesanan_detail_mobil .judul_rincian_pesanan {
+        margin-top: 10px;
+    }
+
+    .rincian_pesanan_detail_mobil .isi_rincian_pesanan .item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+.isi_rincian_pesanan .item .icon {
+    font-size: 15px;
+    color: #333;
+}
+
+/* Rincian Harga */
+.rincian_harga_detail_mobil {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+    .rincian_harga_detail_mobil .judul_rincian_harga {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .rincian_harga_detail_mobil .isi_rincian_harga h5 {
+        font-size: 15px;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .rincian_harga_detail_mobil .isi_rincian_harga .fasilitas_sopir {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .rincian_harga_detail_mobil .isi_rincian_harga .fasilitas_sopir h6 {
+            font-size: 15px;
+            font-weight: 500;
+            color: #222;
+        }
+
+        .rincian_harga_detail_mobil .isi_rincian_harga .fasilitas_sopir p {
+            font-size: 17px;
+        }
+
+.tombol_lanjutkan_pemesanan .btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*=============================================================================================================================*\
+  #HALAMAN PEMESANAN
+\*=============================================================================================================================*/
+
+.pemesanan_container {
+    display: flex;
+    padding: 0rem 1rem;
+    gap: 20px;
+}
+
+/* Sisi Kiri */
+
+/* Informasi Penyewa */
+.informasi_penyewa_pemesanan {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 10px 15px 10px;
+    margin-bottom: 10px;
+}
+
+    .informasi_penyewa_pemesanan .judul_informasi_penyewa_pemesanan {
+        margin-bottom: 20px;
+    }
+
+/* Fasilitas Sopir */
+.apakah_fasilitas_sopir {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 10px 15px 10px;
+    margin-bottom: 10px;
+}
+
+    .apakah_fasilitas_sopir .judul_apakah_fasilitas_sopir {
+        margin-bottom: 20px;
+    }
+
+/* Informasi Penjemputan */
+.informasi_penjemputan_pemesanan {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 20px 15px 10px;
+    margin-bottom: 10px;
+}
+
+    .informasi_penjemputan_pemesanan label {
+        font-size: 14px;
+    }
+
+    .informasi_penjemputan_pemesanan .judul_informasi_penjemputan_pemesanan {
+        margin-bottom: 20px;
+    }
+
+/* Informasi Pengembalian */
+.informasi_pengembalian_pemesanan {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 20px 15px 10px;
+    margin-bottom: 10px;
+}
+
+    .informasi_pengembalian_pemesanan label {
+        font-size: 14px;
+    }
+
+    .informasi_pengembalian_pemesanan .judul_informasi_pengembalian_pemesanan {
+        margin-bottom: 20px;
+    }
+
+
+/*=============================================================================================================================*\
+  #HALAMAN DAFTAR
+\*=============================================================================================================================*/
+
+.daftar_container {
+    max-width: 800px;
+    padding: 1rem 1rem !important;
+}
+
+
+/*=============================================================================================================================*\
+  #HALAMAN MASUK
+\*=============================================================================================================================*/
+
+.masuk_container {
+    max-width: 600px;
+    padding: 1rem 1rem !important;
+}
+
+/*=============================================================================================================================*\
+  #HALAMAN DASHBOARD PEMILIK
+\*=============================================================================================================================*/
+
+
+/* Statistik Container */
+.statistik__container {
+    padding: 0rem 1rem !important;
+}
+
+.judul_statistik {
+    margin-bottom: 20px;
+}
+
+.isi_statistik {
+}
+
+.tambah_container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .tambah_container i {
+        font-size: 24px;
+        color: #007bff;
+    }
+
+    .tambah_container:hover {
+        background-color: #e6f7ff;
+    }
+
+
+/* Daftar Mobil Container */
+
+.daftar_mobil_container {
+    padding: 1rem 1rem !important;
+}
+
+.judul_daftar_mobil {
+    margin-bottom: 20px;
+}
+
+.pemilik_mobil_content {
+    display: grid;
+}
+
+/* Pesanan Masuk Container */
+
+.pesanan__masuk__container {
+    padding: 1rem 1rem !important;
+}
+
+.judul_pesanan_masuk {
+    margin-bottom: 20px;
+}
+
+/* Pesanan Berjalan Container */
+
+.berjalan__container {
+    padding: 1rem 1rem !important;
+}
+
+.judul_berjalan {
+    margin-bottom: 20px;
+}
+
+/* Riwayat Container */
+
+.riwayat__container {
+    padding: 1rem 1rem !important;
+}
+
+.judul_riwayat {
+    margin-bottom: 20px;
+}
+
+
+/*=============================================================================================================================*\
+  #HALAMAN TAMBAH MOBIL
+\*=============================================================================================================================*/
+
+.tambah_mobil_container {
+    display: flex;
+    padding: 0rem 1rem !important;
+}
+
+
+/* Sisi Kiri */
+
+.informasi_tambah_mobil {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    padding: 10px 15px 10px;
+    margin-bottom: 10px;
+}
+
+    .informasi_tambah_mobil .judul_informasi_tambah_mobil {
+        margin-bottom: 20px;
+    }
+
+
+/* Sisi Kanan */
+
+
+/*=============================================================================================================================*\
+  #HALAMAN PEMBAYARAN
+\*=============================================================================================================================*/
+
+.pembayaran__container {
+    padding: 0rem 1rem !important;
+    display: flex;
+}
+
+.sisi_kiri_pembayaran .radio_grup {
+    display: block;
+}
+
+.radio_grup_individual {
+    margin-bottom: 8px;
+}
