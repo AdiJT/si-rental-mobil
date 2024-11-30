@@ -1,15 +1,24 @@
-﻿<section class="section__container masuk_container">
-    <form>
+﻿@model LoginVM
+
+<section class="section__container masuk_container">
+    <form asp-action="@nameof(HomeController.Login)">
         <div class="input_grup">
-            <input type="text" name="kode" value="" required />
-            <label for="kode">Email*</label>
+            <input asp-for="@Model.Email"/>
+            <label asp-for="@Model.Email">Email*</label>
         </div>
         <div class="input_grup">
-            <input type="text" name="kode" value="" required />
-            <label for="kode">Password*</label>
+            <input asp-for="@Model.Password" type="password" />
+            <label asp-for="@Model.Password">Password*</label>
         </div>
+
+        <input asp-for="@Model.ReturnUrl" readonly hidden />
+
         <div class="button_kanan">
-            <a class="btn" href="index.html">Masuk</a>
+            <button class="btn" type="submit">Masuk</button>
         </div>
     </form>
 </section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
