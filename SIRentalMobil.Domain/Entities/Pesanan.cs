@@ -1,4 +1,5 @@
 ﻿using SIRentalMobil.Domain.Abstracts;
+using SIRentalMobil.Domain.Enums;
 
 namespace SIRentalMobil.Domain.Entities;
 
