@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIRentalMobil.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIRentalMobil.Infrastructure.Database;
 namespace SIRentalMobil.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241130120907_TambahJenisDiMobil")]
+    partial class TambahJenisDiMobil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,22 +77,9 @@ namespace SIRentalMobil.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CC")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Dekripsi")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Jenis")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<int>("JenisBensin")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("JenisTransmisi")
-                        .HasColumnType("integer");
 
                     b.Property<bool>("LuarKota")
                         .HasColumnType("boolean");
@@ -104,10 +94,6 @@ namespace SIRentalMobil.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("NomorPlat")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("PemilikId")
                         .HasColumnType("integer");
 
@@ -115,9 +101,6 @@ namespace SIRentalMobil.Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<int>("Status")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Tahun")
                         .HasColumnType("integer");
 
                     b.Property<double>("Tarif")
@@ -137,301 +120,211 @@ namespace SIRentalMobil.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CC = 1500,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "MPV",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
+                            Jenis = "Toyota",
                             LuarKota = true,
-                            MaksHariSewa = 7,
+                            MaksHariSewa = 5,
                             MaksPenumpang = 7,
                             Nama = "Toyota Avanza",
-                            NomorPlat = "DH1234",
                             PemilikId = 1,
                             Sopir = false,
                             Status = 0,
-                            Tahun = 2020,
-                            Tarif = 450000.0,
+                            Tarif = 350000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 2,
-                            CC = 1300,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "Hatchback",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
+                            Jenis = "Honda",
                             LuarKota = true,
-                            MaksHariSewa = 5,
-                            MaksPenumpang = 5,
-                            Nama = "Honda Jazz",
-                            NomorPlat = "DH1234",
+                            MaksHariSewa = 7,
+                            MaksPenumpang = 6,
+                            Nama = "Honda Mobilio",
                             PemilikId = 1,
-                            Sopir = false,
+                            Sopir = true,
                             Status = 0,
-                            Tahun = 2021,
                             Tarif = 400000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 3,
-                            CC = 1500,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "MPV",
-                            JenisBensin = 1,
-                            JenisTransmisi = 0,
-                            LuarKota = true,
-                            MaksHariSewa = 10,
+                            Jenis = "Suzuki",
+                            LuarKota = false,
+                            MaksHariSewa = 3,
                             MaksPenumpang = 7,
-                            Nama = "Mitsubishi Xpander",
-                            NomorPlat = "DH1234",
+                            Nama = "Suzuki Ertiga",
                             PemilikId = 1,
-                            Sopir = true,
+                            Sopir = false,
                             Status = 0,
-                            Tahun = 2019,
-                            Tarif = 500000.0,
+                            Tarif = 375000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 4,
-                            CC = 1200,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "LMPV",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
-                            LuarKota = false,
+                            Jenis = "Daihatsu",
+                            LuarKota = true,
                             MaksHariSewa = 5,
                             MaksPenumpang = 7,
-                            Nama = "Daihatsu Sigra",
-                            NomorPlat = "DH1234",
+                            Nama = "Daihatsu Xenia",
                             PemilikId = 2,
-                            Sopir = false,
+                            Sopir = true,
                             Status = 0,
-                            Tahun = 2022,
                             Tarif = 300000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 5,
-                            CC = 1500,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "SUV",
-                            JenisBensin = 1,
-                            JenisTransmisi = 0,
+                            Jenis = "Toyota",
                             LuarKota = true,
-                            MaksHariSewa = 7,
+                            MaksHariSewa = 10,
                             MaksPenumpang = 7,
-                            Nama = "Toyota Rush",
-                            NomorPlat = "DH1234",
+                            Nama = "Toyota Fortuner",
                             PemilikId = 2,
                             Sopir = true,
                             Status = 0,
-                            Tahun = 2021,
-                            Tarif = 600000.0,
+                            Tarif = 800000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 6,
-                            CC = 1400,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "MPV",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
-                            LuarKota = true,
-                            MaksHariSewa = 6,
-                            MaksPenumpang = 7,
-                            Nama = "Suzuki Ertiga",
-                            NomorPlat = "DH1234",
+                            Jenis = "Honda",
+                            LuarKota = false,
+                            MaksHariSewa = 4,
+                            MaksPenumpang = 5,
+                            Nama = "Honda BR-V",
                             PemilikId = 2,
                             Sopir = false,
                             Status = 0,
-                            Tahun = 2020,
-                            Tarif = 350000.0,
+                            Tarif = 450000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 7,
-                            CC = 2000,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "MPV",
-                            JenisBensin = 1,
-                            JenisTransmisi = 0,
+                            Jenis = "Mitsubishi",
                             LuarKota = true,
-                            MaksHariSewa = 10,
+                            MaksHariSewa = 7,
                             MaksPenumpang = 7,
-                            Nama = "Kijang Innova",
-                            NomorPlat = "DH1234",
+                            Nama = "Mitsubishi Pajero",
                             PemilikId = 3,
                             Sopir = true,
                             Status = 0,
-                            Tahun = 2021,
-                            Tarif = 700000.0,
+                            Tarif = 850000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 8,
-                            CC = 2500,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "SUV",
-                            JenisBensin = 1,
-                            JenisTransmisi = 0,
+                            Jenis = "Toyota",
                             LuarKota = true,
-                            MaksHariSewa = 12,
+                            MaksHariSewa = 7,
                             MaksPenumpang = 7,
-                            Nama = "Toyota Fortuner",
-                            NomorPlat = "DH1234",
+                            Nama = "Toyota Innova",
                             PemilikId = 3,
                             Sopir = true,
                             Status = 0,
-                            Tahun = 2022,
-                            Tarif = 1000000.0,
+                            Tarif = 500000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 9,
-                            CC = 2400,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "SUV",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
-                            LuarKota = true,
-                            MaksHariSewa = 9,
-                            MaksPenumpang = 7,
-                            Nama = "Honda CRV",
-                            NomorPlat = "DH1234",
-                            PemilikId = 3,
-                            Sopir = true,
-                            Status = 0,
-                            Tahun = 2020,
-                            Tarif = 900000.0,
-                            UrlGambar = "/assets/deals-1.png"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CC = 1200,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "Hatchback",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
+                            Jenis = "Suzuki",
                             LuarKota = false,
-                            MaksHariSewa = 4,
-                            MaksPenumpang = 5,
-                            Nama = "Daihatsu Ayla",
-                            NomorPlat = "DH1234",
-                            PemilikId = 4,
+                            MaksHariSewa = 2,
+                            MaksPenumpang = 2,
+                            Nama = "Suzuki Carry",
+                            PemilikId = 3,
                             Sopir = false,
                             Status = 0,
-                            Tahun = 2022,
                             Tarif = 250000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
-                            Id = 11,
-                            CC = 1200,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "Hatchback",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
+                            Id = 10,
+                            Jenis = "Hyundai",
                             LuarKota = true,
-                            MaksHariSewa = 5,
-                            MaksPenumpang = 5,
-                            Nama = "Toyota Agya",
-                            NomorPlat = "DH1234",
+                            MaksHariSewa = 7,
+                            MaksPenumpang = 6,
+                            Nama = "Hyundai Stargazer",
                             PemilikId = 4,
                             Sopir = false,
                             Status = 0,
-                            Tahun = 2021,
-                            Tarif = 270000.0,
+                            Tarif = 450000.0,
+                            UrlGambar = "/assets/deals-1.png"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Jenis = "Kia",
+                            LuarKota = true,
+                            MaksHariSewa = 5,
+                            MaksPenumpang = 5,
+                            Nama = "Kia Sonet",
+                            PemilikId = 4,
+                            Sopir = true,
+                            Status = 0,
+                            Tarif = 500000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 12,
-                            CC = 1500,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "MPV",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
-                            LuarKota = true,
-                            MaksHariSewa = 6,
+                            Jenis = "Toyota",
+                            LuarKota = false,
+                            MaksHariSewa = 4,
                             MaksPenumpang = 7,
-                            Nama = "Honda Mobilio",
-                            NomorPlat = "DH1234",
+                            Nama = "Toyota Rush",
                             PemilikId = 4,
                             Sopir = false,
                             Status = 0,
-                            Tahun = 2020,
-                            Tarif = 350000.0,
+                            Tarif = 400000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 13,
-                            CC = 2800,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "Van",
-                            JenisBensin = 1,
-                            JenisTransmisi = 0,
+                            Jenis = "Nissan",
                             LuarKota = true,
-                            MaksHariSewa = 15,
-                            MaksPenumpang = 15,
-                            Nama = "Toyota HiAce",
-                            NomorPlat = "DH1234",
+                            MaksHariSewa = 6,
+                            MaksPenumpang = 7,
+                            Nama = "Nissan Livina",
                             PemilikId = 5,
-                            Sopir = true,
+                            Sopir = false,
                             Status = 0,
-                            Tahun = 2019,
-                            Tarif = 1200000.0,
+                            Tarif = 380000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 14,
-                            CC = 3000,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "Van",
-                            JenisBensin = 1,
-                            JenisTransmisi = 0,
+                            Jenis = "Toyota",
                             LuarKota = true,
-                            MaksHariSewa = 14,
-                            MaksPenumpang = 16,
-                            Nama = "Isuzu Elf",
-                            NomorPlat = "DH1234",
+                            MaksHariSewa = 10,
+                            MaksPenumpang = 7,
+                            Nama = "Toyota Alphard",
                             PemilikId = 5,
                             Sopir = true,
                             Status = 0,
-                            Tahun = 2020,
-                            Tarif = 1300000.0,
+                            Tarif = 1200000.0,
                             UrlGambar = "/assets/deals-1.png"
                         },
                         new
                         {
                             Id = 15,
-                            CC = 1500,
-                            Dekripsi = "Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan akurat. ",
-                            Jenis = "MPV",
-                            JenisBensin = 0,
-                            JenisTransmisi = 0,
-                            LuarKota = true,
-                            MaksHariSewa = 7,
-                            MaksPenumpang = 7,
-                            Nama = "Suzuki APV",
-                            NomorPlat = "DH1234",
+                            Jenis = "Honda",
+                            LuarKota = false,
+                            MaksHariSewa = 3,
+                            MaksPenumpang = 5,
+                            Nama = "Honda Jazz",
                             PemilikId = 5,
                             Sopir = false,
                             Status = 0,
-                            Tahun = 2021,
-                            Tarif = 500000.0,
+                            Tarif = 350000.0,
                             UrlGambar = "/assets/deals-1.png"
                         });
                 });

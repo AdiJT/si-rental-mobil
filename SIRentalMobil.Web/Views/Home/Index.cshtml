@@ -16,33 +16,33 @@
     </div>
 </div>
 <!--======================================================= AKHIR HERO =================================================-->
-<!--======================================================= FILTER MOBIL ===============================================-->
+<!--======================================================= FILTER MOBIL =======================================================-->
 <section class="header__form">
-    <form action="/">
+    <form class="pencarian" asp-action="@nameof(MobilController.Pencarian)" asp-area="" asp-controller="Mobil" method="get">
         <div class="input__group">
-            <label for="facility">Fasilitas Sopir</label>
-            <select name="facility" id="facility">
-                <option value="all">All in</option>
-                <option value="with-driver">Dengan Sopir</option>
-                <option value="without-driver">Tanpa Sopir</option>
+            <label>Fasilitas Sopir</label>
+            <select name="sopir" id="sopir">
+                <option value="@null">All in</option>
+                <option value="@true">Dengan Sopir</option>
+                <option value="@false">Tanpa Sopir</option>
             </select>
         </div>
         <div class="input__group">
-            <label for="area">Area Perjalanan</label>
-            <select name="area" id="area">
-                <option value="city">Dalam Kota</option>
-                <option value="out-of-city">Luar Kota</option>
+            <label>Area Perjalanan</label>
+            <select name="luarKota" id="luarKota">
+                <option value="@false">Dalam Kota</option>
+                <option value="@true">Luar Kota</option>
             </select>
         </div>
         <div class="input__group">
-            <label for="start-date">Tanggal Mulai</label>
-            <input type="text" id="start-date" placeholder="Pilih tanggal mulai" />
+            <label>Tanggal Mulai</label>
+            <input type="date" name="tanggalMulai" id="start-date" placeholder="Pilih tanggal mulai" />
         </div>
         <div class="input__group">
-            <label for="end-date">Tanggal Akhir</label>
-            <input type="text" id="end-date" placeholder="Pilih tanggal akhir" />
+            <label>Tanggal Akhir</label>
+            <input type="date" name="tanggalAkhir" id="end-date" placeholder="Pilih tanggal akhir" />
         </div>
-        <a asp-area="" asp-controller="Mobil" asp-action="HasilPencarian" class="btn">Cari <i class="ri-search-line"></i></a>
+        <button class="btn">Cari <i class="ri-search-line"></i></button>
     </form>
 </section>
 <!--======================================================= AKHIR FILTER MOBIL =======================================================-->

@@ -36,7 +36,7 @@
     @if (user is null)
     {
         <div class="nav__btns">
-            <a asp-area="" asp-controller="Home" asp-action="Login" class="px-3">Masuk</a>
+            <a asp-area="" asp-controller="Home" asp-action="Login" asp-route-returnUrl="@Context.Request.Path@Context.Request.QueryString" class="px-3">Masuk</a>
             <a asp-area="" asp-controller="Home" asp-action="Daftar" class="btn">Daftar</a>
         </div>
     } 

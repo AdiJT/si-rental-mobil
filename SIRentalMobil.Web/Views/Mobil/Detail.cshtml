@@ -1,8 +1,18 @@
-﻿<section class="section__container judul__detail__mobil__container">
+﻿@using SIRentalMobil.Web.Authentication
+@inject ISignInManager SignInManager
+
+@model DetailVM
+
+@{
+    var user = await SignInManager.GetUser();
+}
+
+<section class="section__container judul__detail__mobil__container">
     <div class="breadcrumbs">
         <a href="index.html">Beranda</a>
         <i class="ri-arrow-right-s-line separator"></i>
-        <a href="pencarian.html">Pencarian</a>
+        <a asp-action="@nameof(MobilController.Pencarian)" asp-route-luarKota="@Model.LuarKota" asp-route-sopir="@Model.Sopir"
+           asp-route-tanggalMulai="@Model.TanggalMulai" asp-route-tanggalAkhir="@Model.TanggalAkhir">Pencarian</a>
         <i class="ri-arrow-right-s-line separator"></i>
         <span class="current">Detail Mobil</span>
     </div>
@@ -17,29 +27,29 @@
         <!-- Utama Mobil -->
         <div class="utama_mobil">
             <div class="foto_mobil col-md-5">
-                <img src="~/assets/deals-12.png" />
+                <img src="@Model.Mobil.UrlGambar.ToString()" />
             </div>
             <div class="detail_mobil col-md-7">
                 <div class="tipe_mobil">
-                    <h3>Toyota Fortuner</h3>
+                    <h3>@Model.Mobil.Nama</h3>
                 </div>
                 <div class="spesifikasi_mobil">
                     <div class="left">
                         <div class="item">
                             <i class="ri-user-line icon"></i>
-                            <p>7 Orang</p>
+                            <p>@Model.Mobil.MaksPenumpang Orang</p>
                         </div>
                         <div class="item">
                             <i class="ri-calendar-line icon"></i>
-                            <p>2018</p>
+                            <p>@Model.Mobil.Tahun</p>
                         </div>
                         <div class="item">
                             <i class="ri-dashboard-line icon"></i>
-                            <p>2100 CC</p>
+                            <p>@Model.Mobil.CC CC</p>
                         </div>
                         <div class="item">
                             <i class="ri-gas-station-line icon"></i>
-                            <p>Pertamax</p>
+                            <p>@Model.Mobil.JenisBensin.Humanize()</p>
                         </div>
                     </div>
 
@@ -47,20 +57,20 @@
                     <div class="right">
                         <div class="item">
                             <i class="ri-barcode-line icon"></i>
-                            <p>DH1234</p>
+                            <p>@Model.Mobil.NomorPlat</p>
                         </div>
-                        <div class="item">
-                            <i class="ri-palette-line icon"></i>
-                            <p>Hitam</p>
-                        </div>
+                        @* <div class="item">
+                        <i class="ri-palette-line icon"></i>
+                        <p>Hitam</p>
+                        </div> *@
                         <div class="item">
                             <i class="ri-steering-line icon"></i>
-                            <p>Manual</p>
+                            <p>@Model.Mobil.JenisTransmisi.Humanize()</p>
                         </div>
-                        <div class="item">
-                            <i class="ri-road-map-line icon"></i>
-                            <p>Jarak tempuh tidak terbatas</p>
-                        </div>
+                        @* <div class="item">
+                        <i class="ri-road-map-line icon"></i>
+                        <p>Jarak tempuh tidak terbatas</p>
+                        </div> *@
                     </div>
                 </div>
             </div>
@@ -71,11 +81,7 @@
                 <h3>Deskripsi Tambahan</h3>
             </div>
             <div class="isi_deskripsi_tambahan_mobil">
-                <p>
-                    Mobil bersih, wangi, fit untuk segala medan dan di pandu dengan driver/supir yg ramah, paham jalan dan mampu
-                    mengoperasikan gps/googlemaps/waze dengan baik sehingga mampu menemukan jalan atau alamat dengan lebih cepat dan
-                    akurat.
-                </p>
+                <p>@Model.Mobil.Dekripsi</p>
             </div>
         </div>
         <!-- Informasi Pemilik Mobil -->
@@ -86,79 +92,86 @@
             <div class="group_informasi_pemilik">
                 <div class="nama_pemilik col-md-4">
                     <p>Nama Lengkap</p>
-                    <h5>Oswaldus Putra Fernando</h5>
+                    <h5>@Model.Mobil.Pemilik.Nama</h5>
                 </div>
                 <div class="nomorhp_pemilik col-md-3">
                     <p>Nomor Telepon</p>
-                    <h5>0821 4471 1486</h5>
+                    <h5>@Model.Mobil.Pemilik.NoHP</h5>
                 </div>
                 <div class="alamat_pemilik col-md-5">
                     <p>Alamat</p>
-                    <h5>Jalan Antonov, Kelurahan Penfui <br> Kecamatan Penfui, Kota Kupang</h5>
+                    <h5>@Model.Mobil.Pemilik.Alamat</h5>
                 </div>
             </div>
         </div>
         <!-- Informasi Sopir Mobil (Kalau Ada) -->
-        <div class="informasi_sopir_mobil">
-            <div class="judul_informasi_sopir_mobil">
-                <h3>Informasi Sopir</h3>
-            </div>
-            <div class="group_informasi_sopir">
-                <div class="nama_sopir col-md-4">
-                    <p>Nama Lengkap</p>
-                    <h5>Adi Juanito Taklal</h5>
+        @* <div class="informasi_sopir_mobil">
+        <div class="judul_informasi_sopir_mobil">
+        <h3>Informasi Sopir</h3>
+        </div>
+        <div class="group_informasi_sopir">
+        <div class="nama_sopir col-md-4">
+        <p>Nama Lengkap</p>
+        <h5>@Model.Mobil.Pemilik.Nama</h5>
+        </div>
+        <div class="nomorhp_sopir col-md-3">
+        <p>Nomor Telepon</p>
+        <h5>@Model.Mobil.Pemilik.NoHP</h5>
+        </div>
+        <div class="alamat_sopir col-md-5">
+        <p>Alamat</p>
+        <h5>@Model.Mobil.Pemilik.Alamat</h5>
+        </div>
+        </div>
+        </div> *@
+    </div>
+
+    @if (user is not null && user.Role == UserRoles.Penyewa)
+    {
+        <div class="sisi_kanan_detail_mobil col-md-4">
+            <div class="pengsticky">
+                <div class="rincian_pesanan_detail_mobil">
+                    <div class="judul_rincian_pesanan">
+                        <h3>Rincian Pesanan</h3>
+                    </div>
+                    <div class="isi_rincian_pesanan">
+                        <div class="item">
+                            <i class="ri-map-pin-line"></i>
+                            <p>@(Model.LuarKota ? "Luar Kota" : "Dalam Kota")</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-time-line"></i>
+                            <p>@Model.JumlahHariSewa hari Full</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-calendar-todo-line"></i>
+                            @if (Model.TanggalMulai is not null && Model.TanggalAkhir is not null)
+                            {
+                                <p>@Model.TanggalMulai.Value.ToString("dd MMMM yyyy", Localization.CultureInfo) - @Model.TanggalAkhir.Value.ToString("dd MMMM yyyy", Localization.CultureInfo)</p>
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div class="nomorhp_sopir col-md-3">
-                    <p>Nomor Telepon</p>
-                    <h5>0812 3456 7890</h5>
+                <div class="rincian_harga_detail_mobil">
+                    <div class="judul_rincian_harga">
+                        <h3>Rincian Pesanan</h3>
+                    </div>
+                    <div class="isi_rincian_harga">
+                        <h5>Harga untuk @Model.JumlahHariSewa hari:</h5>
+                        <div class="fasilitas_sopir mb-1">
+                            <h6>Tanpa Sopir:</h6>
+                            <p>@((Model.Mobil.Tarif * Model.JumlahHariSewa).ToString("C2", Localization.CultureInfo))</p>
+                        </div>
+                        <div class="fasilitas_sopir">
+                            <h6>Dengan Sopir:</h6>
+                            <p>@(((Model.Mobil.Tarif + 100_000d) * Model.JumlahHariSewa).ToString("C2", Localization.CultureInfo))</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="alamat_sopir col-md-5">
-                    <p>Alamat</p>
-                    <h5>Jalan Goku, Kelurahan Bello <br> Kecamatan Lasiana, Kota Kupang</h5>
+                <div class="tombol_lanjutkan_pemesanan">
+                    <a asp-area="" asp-controller="Penyewa" asp-action="Pemesanan" class="btn">Lanjutkan Pemesanan</a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="sisi_kanan_detail_mobil col-md-4">
-        <div class="pengsticky">
-            <div class="rincian_pesanan_detail_mobil">
-                <div class="judul_rincian_pesanan">
-                    <h3>Rincian Pesanan</h3>
-                </div>
-                <div class="isi_rincian_pesanan">
-                    <div class="item">
-                        <i class="ri-map-pin-line"></i>
-                        <p>Dalam Kota</p>
-                    </div>
-                    <div class="item">
-                        <i class="ri-time-line"></i>
-                        <p>2 hari Full</p>
-                    </div>
-                    <div class="item">
-                        <i class="ri-calendar-todo-line"></i>
-                        <p>12 Desember 2024 - 24 Desember 2024</p>
-                    </div>
-                </div>
-            </div>
-            <div class="rincian_harga_detail_mobil">
-                <div class="judul_rincian_harga">
-                    <h3>Rincian Pesanan</h3>
-                </div>
-                <div class="isi_rincian_harga">
-                    <h5>Harga untuk 2 hari:</h5>
-                    <div class="fasilitas_sopir mb-1">
-                        <h6>Tanpa Sopir:</h6>
-                        <p>Rp.500.000</p>
-                    </div>
-                    <div class="fasilitas_sopir">
-                        <h6>Dengan Sopir:</h6>
-                        <p>Rp.700.000</p>
-                    </div>
-                </div>
-            </div>
-            <div class="tombol_lanjutkan_pemesanan">
-                <a asp-area="" asp-controller="Penyewa" asp-action="Pemesanan" class="btn">Lanjutkan Pemesanan</a>
-            </div>
-        </div>
-    </div>
+    }
 </section>

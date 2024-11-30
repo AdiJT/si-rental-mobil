@@ -1,0 +1,95 @@
+﻿@model PencarianVM
+
+@{
+    ViewData["Title"] = "Pencarian";
+    var group = Model.DaftarMobil.GroupBy(m => m.Jenis).OrderBy(g => g.Key).ToList();
+}
+
+<!--======================================================= FILTER MOBIL =======================================================-->
+<section class="header__form pencarian">
+    <form class="pencarian" asp-action="@nameof(MobilController.Pencarian)" method="get">
+        <div class="input__group">
+            <label>Fasilitas Sopir</label>
+            <select asp-for="@Model.Sopir" id="sopir">
+                <option value="@null">All in</option>
+                <option value="@true">Dengan Sopir</option>
+                <option value="@false">Tanpa Sopir</option>
+            </select>
+        </div>
+        <div class="input__group">
+            <label>Area Perjalanan</label>
+            <select asp-for="@Model.LuarKota id=" luarKota">
+                <option value="@false">Dalam Kota</option>
+                <option value="@true">Luar Kota</option>
+            </select>
+        </div>
+        <div class="input__group">
+            <label>Tanggal Mulai</label>
+            <input type="date" asp-for="@Model.TanggalMulai" id="start-date" placeholder="Pilih tanggal mulai" />
+        </div>
+        <div class="input__group">
+            <label>Tanggal Akhir</label>
+            <input type="date" asp-for="@Model.TanggalAkhir" id="end-date" placeholder="Pilih tanggal akhir" />
+        </div>
+        <button class="btn">Cari <i class="ri-search-line"></i></button>
+    </form>
+</section>
+<!--======================================================= AKHIR FILTER MOBIL =======================================================-->
+<!--======================================================= MOBIL POPULER =======================================================-->
+<section class="deals" id="deals">
+    <div class="section__container deals__container">
+        <div class="judul_deals">
+            <h3>Tersedia @Model.DaftarMobil.Count Mobil</h3>
+        </div>
+        <div class="deals__tabs">
+            @foreach (var (jenis, i) in group.Select(g => g.Key).Zip(Enumerable.Range(0, group.Count)))
+            {
+                <button class="btn @(i == 0 ? "active" : "")" data-id="@(string.IsNullOrWhiteSpace(jenis) ? "Lainnya" : jenis)">
+                    @(string.IsNullOrWhiteSpace(jenis) ? "Lainnya" : jenis)
+                </button>
+            }
+        </div>
+        <!---------------------- Tipe/Jenis ---------------------->
+        @foreach (var (g, i) in group.Zip(Enumerable.Range(0, group.Count)))
+        {
+            <div id="@(string.IsNullOrWhiteSpace(g.Key) ? "Lainnya" : g.Key)" class="tab__content @(i == 0 ? "active" : "")">
+                @foreach (var mobil in g)
+                {
+                    <!-- Card Mobil -->
+                    <div class="deals__card">
+                        <img src="@mobil.UrlGambar.ToString()" alt="deals" />
+                        <h4>@mobil.Nama</h4>
+                        <div class="deals__card__grid">
+                            <div>
+                                <span><i class="ri-group-line"></i></span> @mobil.MaksPenumpang Orang
+                            </div>
+                            <div>
+                                <span><i class="ri-speed-up-line"></i></span> @mobil.CC CC
+                            </div>
+                            <div>
+                                <span><i class="ri-calendar-2-line"></i></span> @mobil.Tahun
+                            </div>
+                            <div>
+                                <span><i class="ri-gas-station-line"></i></span> @mobil.JenisBensin.Humanize()
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="deals__card__footer">
+                            <h3>@((mobil.Tarif * Model.JumlahHariSewa).ToString("C2", Localization.CultureInfo))<span>/ @Model.JumlahHariSewa Hari</span></h3>
+                            <a asp-area="" asp-controller="Mobil" asp-action="Detail" asp-route-id="@mobil.Id" asp-route-luarKota="@Model.LuarKota"
+                               asp-route-sopir="@Model.Sopir" asp-route-tanggalMulai="@Model.TanggalMulai" asp-route-tanggalAkhir="@Model.TanggalAkhir">
+                                Lihat Detail
+                                <span><i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Akhir Card Mobil -->
+                }
+            </div>
+        }
+    </div>
+</section>
+<!--======================================================= AKHIR MOBIL POPULER =======================================================-->
+@section Scripts {
+    <script src="~/js/tabs.js" asp-append-version="true"></script>
+}
