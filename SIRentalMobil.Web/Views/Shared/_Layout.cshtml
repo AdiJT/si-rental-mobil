@@ -7,43 +7,118 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SIRentalMobil.Web.styles.css" asp-append-version="true" />
+
+    <!--============= ICON - REMIXICON ===========-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+          rel="stylesheet" />
+
+    <!--============= SLIDER - SWIPER ===========-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SIRentalMobil.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
+    <partial name="_NavbarPartial"></partial>
+
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - SIRentalMobil.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!--======================================================= FOOTER =======================================================-->
+    <footer class="footer">
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <div class="footer__logo">
+                    <a href="#" class="logo">
+                        <img src="assets/logo-white.png" alt="logo" />
+                        <span>HoppCar</span>
+                    </a>
+                </div>
+                <p>
+                    Kami menyediakan kendaraan terbaik dan pengalaman sewa yang mulus.
+                    Tetap terhubung untuk informasi lainnya. Berkendaralah dengan
+                    percaya diri!
+                </p>
+                <ul class="footer__socials">
+                    <li>
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-linkedin-fill"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ri-youtube-fill"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col kanan_footer">
+                <h4>Layanan Kami</h4>
+                <ul class="footer__links">
+                    <li><a href="#home">Dukungan Pelanggan</a></li>
+                    <li><a href="#about">Banyak Lokasi</a></li>
+                    <li><a href="#deals">Harga Terbaik</a></li>
+                    <li><a href="#choose">Pengemudi berpengalaman</a></li>
+                </ul>
+            </div>
+            <div class="footer__col kanan_footer">
+                <h4>Merk Mobil</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Toyota</a></li>
+                    <li><a href="#">Daihatsu</a></li>
+                    <li><a href="#">Honda</a></li>
+                    <li><a href="#">Suzuki</a></li>
+                    <li><a href="#">Mistubishi</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Kontak</h4>
+                <ul class="footer__links">
+                    <li>
+                        <a href="#">
+                            <span><i class="ri-phone-fill"></i></span> 082144711486
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><i class="ri-map-pin-fill"></i></span> Penfui, Kota Kupang
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span><i class="ri-mail-fill"></i></span> contoh@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bar">
+            Copyright © 2024 Bisnis Digital 5-6. All rights reserved.
         </div>
     </footer>
+    <!--======================================================= AKHIR FOOTER =======================================================-->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/swiper.js" asp-append-version="true"></script>
+    <script src="~/js/daterangepicker.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

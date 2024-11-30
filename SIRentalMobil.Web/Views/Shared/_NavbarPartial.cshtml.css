@@ -1,0 +1,135 @@
+﻿/*-----------------------------------*\
+  #NAVBAR
+\*-----------------------------------*/
+nav {
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    z-index: 9;
+}
+
+.nav__header {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color-dark);
+}
+
+.nav__logo .logo-dark {
+    display: none;
+}
+
+.nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.nav__links {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--primary-color-dark);
+    transition: transform 0.5s;
+    z-index: -1;
+}
+
+    .nav__links.open {
+        transform: translateY(100%);
+    }
+
+    .nav__links a {
+        color: var(--white);
+    }
+
+        .nav__links a:hover {
+            color: var(--primary-color);
+        }
+
+.nav__btns {
+    display: none;
+}
+
+
+/* =============================== DIATAS 768px =============================== */
+@media (min-width: 768px) {
+    /*-----------------------------------*\
+    #NAVBAR
+    \*-----------------------------------*/
+    nav {
+        position: static;
+        padding: 1.5rem 1rem;
+        max-width: var(--max-width);
+        margin-inline: auto;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .nav__header {
+        flex: 1;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .nav__logo img {
+        max-width: 45px;
+    }
+
+    .nav__logo .logo-dark {
+        display: flex;
+    }
+
+    .nav__logo .logo-white {
+        display: none;
+    }
+
+    .nav__logo span {
+        font-size: 1.5rem;
+        color: var(--primary-color-dark);
+    }
+
+    .nav__menu__btn {
+        display: none;
+    }
+
+    .nav__links {
+        position: static;
+        width: fit-content;
+        padding: 0;
+        flex-direction: row;
+        background-color: transparent;
+        transform: none !important;
+    }
+
+        .nav__links a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .nav__links li:last-child {
+            display: none;
+        }
+
+        .nav__links li:nth-last-child(2) {
+            display: none;
+        }
+
+    .nav__btns {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}

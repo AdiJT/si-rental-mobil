@@ -2,7 +2,238 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!--======================================================= HERO =======================================================-->
+<div class="header__container" id="home">
+    <div class="header__image">
+        <img src="assets/header.png" alt="header" />
+    </div>
+    <div class="header__content">
+        <h2>🚗 Rental Mobil Terpercaya di Kupang, Nusa Tenggara Timur</h2>
+        <h1>SEWA MOBIL MUDAH DAN MURAH</h1>
+        <p class="section__description">
+            Rental mobil terpercaya di Kupang dengan pilihan kendaraan berkualitas untuk segala kebutuhan Anda. Pesan sekarang, cepat dan mudah!
+        </p>
+    </div>
 </div>
+<!--======================================================= AKHIR HERO =======================================================-->
+<!--======================================================= FILTER MOBIL =======================================================-->
+<section class="header__form">
+    <form action="/">
+        <div class="input__group">
+            <label for="facility">Fasilitas Sopir</label>
+            <select name="facility" id="facility">
+                <option value="all">All in</option>
+                <option value="with-driver">Dengan Sopir</option>
+                <option value="without-driver">Tanpa Sopir</option>
+            </select>
+        </div>
+        <div class="input__group">
+            <label for="area">Area Perjalanan</label>
+            <select name="area" id="area">
+                <option value="city">Dalam Kota</option>
+                <option value="out-of-city">Luar Kota</option>
+            </select>
+        </div>
+        <div class="input__group">
+            <label for="start-date">Tanggal Mulai</label>
+            <input type="text" id="start-date" placeholder="Pilih tanggal mulai" />
+        </div>
+        <div class="input__group">
+            <label for="end-date">Tanggal Akhir</label>
+            <input type="text" id="end-date" placeholder="Pilih tanggal akhir" />
+        </div>
+        <a href="pencarian.html" class="btn">Cari <i class="ri-search-line"></i></a>
+    </form>
+</section>
+<!--======================================================= AKHIR FILTER MOBIL =======================================================-->
+<!--======================================================= BAGAIMANA WEB BEKERJA =======================================================-->
+<section class="section__container about__container" id="about">
+    <h2 class="section__header">Cara Memesan ?</h2>
+    <p class="section__description">
+        Pesan mobil dengan cepat dan mudah dengan tahapan-tahapan berikut :
+    </p>
+    <div class="about__grid">
+        <div class="about__card">
+            <span><i class="ri-map-pin-2-fill"></i></span>
+            <h4>Cari Mobil</h4>
+            <p>
+                Isi kriteria mobil yang sesuai dengan preferensi anda dan lakukan pencarian.
+            </p>
+        </div>
+        <div class="about__card">
+            <span><i class="ri-calendar-event-fill"></i></span>
+            <h4>Pilih Mobil</h4>
+            <p>
+                Pilih salah satu mobil yang sesuai dengan preferensi anda.
+            </p>
+        </div>
+        <div class="about__card">
+            <span><i class="ri-roadster-fill"></i></span>
+            <h4>Pesan Mobil</h4>
+            <p>
+                Baca detail mobil, isi formulir pemesanan, dan lakukan pembayaran.
+            </p>
+        </div>
+    </div>
+</section>
+<!--======================================================= AKHIR BAGAIMANA WEB BEKERJA =======================================================-->
+<!--======================================================= SERVICE =======================================================-->
+<section class="choose__container" id="choose">
+    <div class="choose__image">
+        <img src="assets/subscribe.png" alt="choose" />
+    </div>
+    <div class="choose__content">
+        <h2 class="section__header">Layanan Tersedia</h2>
+        <p class="section__description">
+            Temukan perbedaan dengan layanan sewa mobil kami. Kami menawarkan kendaraan yang andal, layanan pelanggan yang luar biasa, dan harga yang kompetitif untuk memastikan pengalaman sewa yang lancar.
+        </p>
+        <div class="choose__grid">
+            <div class="choose__card">
+                <span><i class="ri-customer-service-line"></i></span>
+                <div>
+                    <h4>Dukungan Pelanggan</h4>
+                    <p>Tim dukungan kami siap membantu Anda 24/7.</p>
+                </div>
+            </div>
+            <div class="choose__card">
+                <span><i class="ri-map-pin-line"></i></span>
+                <div>
+                    <h4>Banyak Lokasi</h4>
+                    <p>
+                        Lokasi penjemputan dan pengantaran yang praktis untuk kebutuhan Anda.
+                    </p>
+                </div>
+            </div>
+            <div class="choose__card">
+                <span><i class="ri-wallet-line"></i></span>
+                <div>
+                    <h4>Harga Terbaik</h4>
+                    <p>Nikmati tarif yang kompetitif dan nilai terbaik untuk setiap penyewaan.</p>
+                </div>
+            </div>
+            <div class="choose__card">
+                <span><i class="ri-user-star-line"></i></span>
+                <div>
+                    <h4>Pengemudi Berpengalaman</h4>
+                    <p>Pengemudi yang andal dan profesional tersedia atas permintaan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--======================================================= AKHIR SERVICE =======================================================-->
+<!--======================================================= TESTIMONI =======================================================-->
+<section class="section__container client__container" id="client">
+    <h2 class="section__header">Testimoni Pelanggan</h2>
+    <p class="section__description">
+        Berikut adalah pengalaman pelanggan yang telah menggunakan layanan kami. Kami selalu berusaha memberikan yang terbaik untuk
+        kebutuhan Anda.
+    </p>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="client__card">
+                    <div class="client__details">
+                        <img src="assets/client-1.jpg" alt="client" />
+                        <div>
+                            <h4>Siti Andini</h4>
+                            <div class="client__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Pengalaman menyewa mobil di sini sangat luar biasa! Proses pemesanan cepat dan mudah, serta mobilnya dalam kondisi sempurna. Sangat direkomendasikan!
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="client__card">
+                    <div class="client__details">
+                        <img src="assets/client-2.jpg" alt="client" />
+                        <div>
+                            <h4>Rizky Pratama</h4>
+                            <div class="client__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Dukungan pelanggan sangat baik! Mereka membantu menjawab semua pertanyaan saya, dan saya merasa yakin dengan pemesanan saya. Pasti akan menyewa di sini lagi.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="client__card">
+                    <div class="client__details">
+                        <img src="assets/client-3.jpg" alt="client" />
+                        <div>
+                            <h4>Indah Sari</h4>
+                            <div class="client__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Harga terjangkau dan banyak pilihan kendaraan! Saya menemukan mobil yang saya butuhkan, dan proses penjemputan serta pengembaliannya sangat mudah. Sangat puas dengan layanan ini.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="client__card">
+                    <div class="client__details">
+                        <img src="assets/client-4.jpg" alt="client" />
+                        <div>
+                            <h4>Bagas Arya</h4>
+                            <div class="client__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Kebijakan pembatalan gratis membuat perjalanan saya lebih tenang. Saya sempat mengubah rencana, dan prosesnya sangat mudah. Layanan yang sangat memuaskan!
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="client__card">
+                    <div class="client__details">
+                        <img src="assets/client-5.jpg" alt="client" />
+                        <div>
+                            <h4>Aditia Putra</h4>
+                            <div class="client__rating">
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-fill"></i></span>
+                                <span><i class="ri-star-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        Mobil yang saya sewa sangat nyaman, dan sopirnya sangat berpengalaman. Perjalanan saya jadi lebih menyenangkan. Akan menggunakan layanan ini lagi di masa depan!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--======================================================= AKHIR TESTIMONI =======================================================-->

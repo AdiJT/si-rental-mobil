@@ -1,48 +1,117 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-a {
-  color: #0077cc;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
+﻿/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    background-color: var(--primary-color-dark);
+}
+
+.footer__container {
+    display: grid;
+    gap: 4rem 2rem;
+}
+
+.kanan_footer {
+    padding-left: 50px;
+}
+
+.footer__logo {
+    margin-bottom: 2rem;
+}
+
+    .footer__logo img {
+        max-width: 45px;
+    }
+
+    .footer__logo span {
+        font-size: 1.5rem;
+        color: var(--white);
+    }
+
+.footer__col p {
+    margin-bottom: 2rem;
+    color: var(--extra-light);
+    line-height: 1.5rem;
+}
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+    .footer__socials a {
+        padding: 6px 8px;
+        font-size: 1.125rem;
+        color: var(--text-dark);
+        background-color: var(--white);
+        border-radius: 100%;
+    }
+
+        .footer__socials a:hover {
+            color: var(--white);
+            background-color: var(--primary-color);
+        }
+
+.footer__col h4 {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.footer__links {
+    display: grid;
+    gap: 1rem;
+}
+
+    .footer__links a {
+        color: var(--extra-light);
+    }
+
+        .footer__links a:hover {
+            color: var(--primary-color);
+        }
+
+    .footer__links span {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 4px 6px;
+        border: 1px solid var(--extra-light);
+        border-radius: 100%;
+    }
+
+    .footer__links a:hover span {
+        border-color: var(--primary-color);
+    }
+
+.footer__bar {
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--extra-light);
+    text-align: center;
+}
+
+
+/* =============================== DIATAS 540px =============================== */
+@media (min-width: 540px) {
+
+    /*-----------------------------------*\
+    #FOOTER
+    \*-----------------------------------*/
+    .footer__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =============================== DIATAS 768px =============================== */
+@media (min-width: 768px) {
+
+    /*-----------------------------------*\
+    #FOOTER
+    \*-----------------------------------*/
+    .footer__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

@@ -1,22 +1,343 @@
-html {
-  font-size: 14px;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+/*-----------------------------------*\
+  #CSS GLOBAL
+\*-----------------------------------*/
+:root {
+    --primary-color: #8a79f0;
+    --primary-color-dark: #2e2a40;
+    --text-dark: #221e36;
+    --text-light: #767268;
+    --extra-light: #f1f2ff;
+    --white: #ffffff;
+    --max-width: 1200px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/*-----------------------------------*\
+  #CSS YANG DIGUNAKAN ULANG / REUSABLE
+\*-----------------------------------*/
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.section__header {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 3.25rem;
+    text-align: center;
+}
+
+.section__description {
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        background-color: var(--primary-color-dark);
+    }
+
+.btn-hijau {
+    background-color: green !important;
+}
+
+    .btn-hijau:hover {
+        background-color: rgb(1, 40, 1) !important;
+    }
+
+.btn-merah {
+    background-color: red !important;
+}
+
+    .btn-merah:hover {
+        background-color: rgb(124, 1, 1) !important;
+    }
+
+.button_kanan {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+
+/* Breadcumbs */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+    .breadcrumbs a {
+        text-decoration: none;
+        color: #71747d;
+        display: flex;
+        align-items: center;
+        transition: color 0.3s;
+    }
+
+        .breadcrumbs a:hover {
+            color: #515255;
+        }
+
+    .breadcrumbs .separator {
+        margin: 0 5px;
+        color: #6c757d;
+        font-size: 16px;
+    }
+
+    .breadcrumbs .current {
+        font-weight: bold;
+        color: #71747d;
+    }
+
+
+.judul_halaman h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .logo img {
+        max-width: 35px;
+    }
+
+    .logo span {
+        font-size: 1.25rem;
+        font-weight: 700;
+        font-style: italic;
+        color: var(--white);
+        white-space: nowrap;
+    }
+
+img {
+    display: flex;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+p {
+    font-size: 15px;
+    color: var(--text-light);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0rem;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: "Lexend", sans-serif;
 }
+
+input, select, textarea {
+    font-family: "Lexend", sans-serif !important;
+}
+
+/* Input Style */
+.input_grup {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+    .input_grup .lihat-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #888;
+    }
+
+    .input_grup label {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        padding: 0 5px;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .input_grup input {
+        width: 100%;
+        padding: 15px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+        .input_grup input:focus ~ label,
+        .input_grup input:valid ~ label {
+            top: 0;
+            font-size: 12px;
+            background: #fff;
+        }
+
+    .input_grup textarea {
+        width: 100%;
+        padding: 15px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+/* Radio Button */
+input[type="radio"] {
+    width: 16px;
+    cursor: pointer;
+}
+
+.radio_grup {
+    display: flex;
+}
+
+    .radio_grup label {
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+
+/*-----------------------------------------------*\ #FILTER MOBIL \*-----------------------------------------------*/ 
+
+.header__form {
+    height: 8vh !important;
+}
+
+    .header__form form {
+        max-width: 1200px;
+        margin-inline: auto;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        background-color: var(--white);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+    }
+
+    .header__form .input__group {
+        flex: 1 0 170px;
+        display: grid;
+        gap: 10px;
+    }
+
+    .header__form label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+
+    .header__form input {
+        font-family: 'Roboto';
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        border: 1px solid var(--text-light);
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        color: var(--text-dark);
+        background-color: var(--light-gray);
+    }
+
+    .header__form select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: var(--light-gray);
+        border: 1px solid var(--text-light);
+        border-radius: 0.5rem;
+        padding: 10px;
+        font-size: 1rem;
+        color: #9b9b9b;
+        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"%3E%3Cpath fill="gray" d="M4 6l4 4 4-4z"/%3E%3C/svg%3E');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 10px;
+        padding-right: 30px;
+        cursor: pointer;
+    }
+
+        .header__form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 5px var(--primary);
+        }
+
+
+
+    .header__form input:focus {
+        border-color: var(--primary);
+        box-shadow: 0px 0px 5px var(--primary);
+    }
+
+    .header__form select option {
+        font-size: 0.9rem;
+        color: var(--text-dark);
+    }
+
+    .header__form .btn {
+        margin-top: 25px;
+        padding: 13px 17px;
+    }
+
+/* =============================== DIATAS 768px =============================== */
+@media (min-width: 768px) {
+    /*-----------------------------------*\
+    #FILTER MOBIL
+    \*-----------------------------------*/
+    .header__form form {
+        padding: 1.5rem;
+        transform: translateY(-50%);
+    }
+
+    .header__form .pencarian {
+        transform: translateY(0%) !important;
+    }
+}
+
+
+/*-----------------------------------------------*\ #HALAMAN LAIN \*-----------------------------------------------*/ 
