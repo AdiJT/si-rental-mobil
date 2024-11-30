@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SIRentalMobil.Domain.Entities;
+using SIRentalMobil.Infrastructure.Database;
 using SIRentalMobil.Web.Authentication;
 using SIRentalMobil.Web.Models;
 using SIRentalMobil.Web.Models.HomeModels;
@@ -12,11 +15,19 @@ namespace SIRentalMobil.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ISignInManager _signInManager;
+        private readonly AppDbContext _appDbContext;
+        private readonly IPasswordHasher<User> _passwordHasher;
 
-        public HomeController(ILogger<HomeController> logger, ISignInManager signInManager)
+        public HomeController(
+            ILogger<HomeController> logger,
+            ISignInManager signInManager,
+            AppDbContext appDbContext,
+            IPasswordHasher<User> passwordHasher)
         {
             _logger = logger;
             _signInManager = signInManager;
+            _appDbContext = appDbContext;
+            _passwordHasher = passwordHasher;
         }
 
         public IActionResult Index()
@@ -48,7 +59,41 @@ namespace SIRentalMobil.Web.Controllers
 
         public IActionResult Daftar()
         {
-            return View();
+            return View(new DaftarVM());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Daftar(DaftarVM vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+
+            if(await _appDbContext.TblUser.AnyAsync(u => u.Email == vm.Email))
+            {
+                ModelState.AddModelError(nameof(DaftarVM.Email), $"Email '{vm.Email}' sudah digunakan");
+                return View(vm);
+            }
+
+            if (await _appDbContext.TblUser.AnyAsync(u => u.Nama == vm.Nama))
+            {
+                ModelState.AddModelError(nameof(DaftarVM.Nama), $"Email '{vm.Nama}' sudah digunakan");
+                return View(vm);
+            }
+
+            var user = new User
+            {
+                Nama = vm.Nama,
+                NIK = vm.NIK,
+                Alamat = vm.Alamat,
+                NoHP = vm.NoHP,
+                Role = vm.Role,
+                Email = vm.Email
+            };
+
+            user.PasswordHash = _passwordHasher.HashPassword(user, vm.Password);
+            _appDbContext.TblUser.Add(user);
+            await _appDbContext.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Login));
         }
 
         [HttpPost]
