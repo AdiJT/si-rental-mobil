@@ -15,8 +15,3 @@ public class Pesanan : Entity
     public Mobil Mobil { get; set; }
     public Pembayaran Pembayaran { get; set; }
 }
-
-public enum StatusPesanan
-{
-    BelumBayar, SudahBayar, Batal
-}
