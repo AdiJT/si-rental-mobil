@@ -2,5 +2,5 @@
 
 public enum StatusPesanan
 {
-    BelumBayar, SudahBayar, Batal
+    BelumDiterima, BelumBayar, SudahBayar, Batal
 }
