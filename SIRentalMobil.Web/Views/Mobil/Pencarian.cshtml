@@ -25,11 +25,13 @@
         </div>
         <div class="input__group">
             <label>Tanggal Mulai</label>
-            <input type="date" asp-for="@Model.TanggalMulai" id="start-date" placeholder="Pilih tanggal mulai" />
+            <input type="date" asp-for="@Model.TanggalMulai" id="start-date" placeholder="Pilih tanggal mulai" required />
+            <span asp-validation-for="@Model.TanggalMulai"></span>
         </div>
         <div class="input__group">
             <label>Tanggal Akhir</label>
-            <input type="date" asp-for="@Model.TanggalAkhir" id="end-date" placeholder="Pilih tanggal akhir" />
+            <input type="date" asp-for="@Model.TanggalAkhir" id="end-date" placeholder="Pilih tanggal akhir" required/>
+            <span asp-validation-for="@Model.TanggalAkhir"></span>
         </div>
         <button class="btn">Cari <i class="ri-search-line"></i></button>
     </form>
@@ -91,5 +93,7 @@
 </section>
 <!--======================================================= AKHIR MOBIL POPULER =======================================================-->
 @section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
     <script src="~/js/tabs.js" asp-append-version="true"></script>
 }
