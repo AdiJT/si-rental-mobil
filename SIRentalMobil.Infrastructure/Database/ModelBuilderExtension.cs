@@ -176,7 +176,7 @@ public static class ModelBuilderExtension
                 MaksHariSewa = 5,
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
-                Status = StatusMobil.Tersedia,
+                Status = StatusMobil.TidakTersedia,
                 PemilikId = 2
             },
             new
@@ -196,7 +196,7 @@ public static class ModelBuilderExtension
                 MaksHariSewa = 10,
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
-                Status = StatusMobil.Tersedia,
+                Status = StatusMobil.TidakTersedia,
                 PemilikId = 2
             },
 

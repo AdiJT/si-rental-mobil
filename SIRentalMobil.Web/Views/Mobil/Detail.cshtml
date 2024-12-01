@@ -51,6 +51,12 @@
                             <i class="ri-gas-station-line icon"></i>
                             <p>@Model.Mobil.JenisBensin.Humanize()</p>
                         </div>
+                        @if (user is not null && user.Role == UserRoles.Pemilik && user == Model.Mobil.Pemilik)
+                        {
+                            <div class="item">
+                                <p>Status : @Model.Mobil.Status.Humanize()</p>
+                            </div>
+                        }
                     </div>
 
                     <!-- Kolom Kanan -->
@@ -85,7 +91,7 @@
             </div>
         </div>
 
-        @if (user is null || user.Role != UserRoles.Pemilik)
+        @if (user is null || user.Role != UserRoles.Pemilik || user != Model.Mobil.Pemilik)
         {
             <!-- Informasi Pemilik Mobil -->
             <div class="informasi_pemilik_mobil">

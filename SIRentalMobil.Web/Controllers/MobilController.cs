@@ -47,20 +47,19 @@ public class MobilController : Controller
         if (sopir is not null)
             daftarMobil = daftarMobil.Where(m => m.Sopir == sopir).ToList();
 
-        var jumlahHari = 1;
-        if (tanggalMulai is not null && tanggalAkhir is not null)
-        {
-            jumlahHari = (int)Math.Ceiling(TimeSpan.FromDays(tanggalAkhir.Value.DayNumber - tanggalMulai.Value.DayNumber).TotalDays) + 1;
-            daftarMobil = daftarMobil.Where(m => m.MaksHariSewa >= jumlahHari).ToList();
-        }
+        tanggalMulai ??= DateOnly.FromDateTime(DateTime.Now);
+        tanggalAkhir ??= DateOnly.FromDateTime(DateTime.Now);
+
+        var jumlahHari = (int)Math.Ceiling(TimeSpan.FromDays(tanggalAkhir.Value.DayNumber - tanggalMulai.Value.DayNumber).TotalDays) + 1;
+        daftarMobil = daftarMobil.Where(m => m.MaksHariSewa >= jumlahHari).ToList();
 
         return View(new PencarianVM
         {
             DaftarMobil = daftarMobil,
             Sopir = sopir,
             LuarKota = luarKota,
-            TanggalMulai = tanggalMulai,
-            TanggalAkhir = tanggalAkhir,
+            TanggalMulai = tanggalMulai.Value,
+            TanggalAkhir = tanggalAkhir.Value,
             JumlahHariSewa = jumlahHari
         });
     }

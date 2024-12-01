@@ -49,6 +49,9 @@
                     <div>
                         <span><i class="ri-gas-station-line"></i></span> @mobil.JenisBensin.Humanize()
                     </div>
+                    <div>
+                        <span>Status : @mobil.Status.Humanize()</span>
+                    </div>
                 </div>
                 <hr />
                 <div class="deals__card__footer">
@@ -93,8 +96,12 @@
                             </a>
                         </td>
                         <td>
-                            <i class="ri-check-line btn-action approve"></i>
-                            <i class="ri-close-line btn-action reject"></i>
+                            <a asp-action="@nameof(PemilikController.TerimaPesanan)" asp-route-id="@pesanan.Id" class="btn-success m-3">
+                                <i class="ri-check-line btn-action approve"></i>
+                            </a>
+                            <a asp-action="@nameof(PemilikController.TolakPesanan)" asp-route-id="@pesanan.Id" class="btn-danger">
+                                <i class="ri-close-line btn-action reject"></i>
+                            </a>
                         </td>
                     </tr>
                 }

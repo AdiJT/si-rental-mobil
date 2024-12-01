@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SIRentalMobil.Domain.Entities;
+using SIRentalMobil.Domain.Enums;
 using SIRentalMobil.Infrastructure.Database;
 using SIRentalMobil.Web.Authentication;
 
@@ -12,11 +13,13 @@ public class PemilikController : Controller
 {
     private readonly AppDbContext _appDbContext;
     private readonly ISignInManager _signInManager;
+    private readonly ILogger<PemilikController> _logger;
 
-    public PemilikController(AppDbContext appDbContext, ISignInManager signInManager)
+    public PemilikController(AppDbContext appDbContext, ISignInManager signInManager, ILogger<PemilikController> logger)
     {
         _appDbContext = appDbContext;
         _signInManager = signInManager;
+        _logger = logger;
     }
 
     public async Task<IActionResult> Index()
@@ -43,5 +46,57 @@ public class PemilikController : Controller
         if(pesanan is null) return NotFound();
 
         return View(pesanan);
+    }
+
+    public async Task<IActionResult> TerimaPesanan(int id)
+    {
+        var pesanan = await _appDbContext.TblPesanan.FirstOrDefaultAsync(p => p.Id == id);
+        if (pesanan is null) return NotFound();
+
+        if(pesanan.Status == StatusPesanan.BelumDiterima)
+            pesanan.Status = StatusPesanan.BelumBayar;
+
+        _appDbContext.TblPesanan.Update(pesanan);
+
+        try
+        {
+            await _appDbContext.SaveChangesAsync(); 
+        }
+        catch(Exception ex)
+        {
+            _logger.LogError(ex, "Error Terima Pesanan At {@time}", DateTime.Now);
+        }
+
+        return RedirectToAction(nameof(DetailPemesanan), new { id });
+    }
+
+    public async Task<IActionResult> TolakPesanan(int id)
+    {
+        var pesanan = await _appDbContext.TblPesanan
+            .Include(p => p.Mobil)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if (pesanan is null) return NotFound();
+
+        if (pesanan.Status == StatusPesanan.BelumDiterima)
+        {
+            pesanan.Status = StatusPesanan.Batal;
+            pesanan.Mobil.Status = StatusMobil.Tersedia;
+
+            _appDbContext.TblMobil.Update(pesanan.Mobil);
+        }
+
+        _appDbContext.TblPesanan.Update(pesanan);
+
+        try
+        {
+            await _appDbContext.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error Terima Pesanan At {@time}", DateTime.Now);
+        }
+
+        return RedirectToAction(nameof(DetailPemesanan), new { id });
     }
 }
