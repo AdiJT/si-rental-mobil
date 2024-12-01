@@ -96,61 +96,36 @@
                 <div class="judul_informasi_tambah_mobil">
                     <h3>Informasi Pemesanan</h3>
                 </div>
-                <form>
 
-                    <label>Area Pemakaian</label>
-                    <div class="radio_grup mb-2 mt-1">
-                        <input type="radio" id="dalam_kota" name="area_pemakaian" value="dalam_kota">
-                        <label class="ps-1 pe-2" for="dalam_kota">Dalam Kota</label><br>
-                        <input class="ps-1" type="radio" id="luar_kota" name="area_pemakaian" value="luar_kota" checked>
-                        <label class="ps-1" for="luar_kota">Luar Kota</label>
-                    </div>
+                <label>Area Pemakaian</label>
+                <div class="radio_grup mb-2 mt-1">
+                    <input type="radio" asp-for="@Model.LuarKota" value="@false" checked>
+                    <label asp-for="@Model.LuarKota">Dalam Kota</label><br>
 
-                    <label>Batas Waktu Pemesanan</label>
-                    <div class="input_grup">
-                        <input type="text" id="datepicker" placeholder="Pilih tanggal" required />
-                        <label for="datepicker"></label>
-                    </div>
-
-                    <label>Fasilitas Sopir</label>
-                    <div class="radio_grup mb-1 mt-1">
-                        <input type="radio" id="dengan_sopir" name="fasilitas_sopir" value="dengan_sopir">
-                        <label class="ps-1 pe-2" for="dengan_sopir">Dengan Sopir</label><br>
-                        <input class="ps-1" type="radio" id="tanpa_sopir" name="fasilitas_sopir" value="tanpa_sopir" checked>
-                        <label class="ps-1" for="tanpa_sopir">Tanpa Sopir</label>
-                    </div>
-                    <div class="input_grup">
-                        <input type="text" name="kode" required />
-                        <label for="kode">Harga tanpa Sopir*</label>
-                    </div>
-                </form>
-            </div>
-            <!-- Informasi Penyewa -->
-            <div class="informasi_tambah_mobil">
-                <div class="judul_informasi_tambah_mobil">
-                    <h3>Informasi Sopir</h3>
+                    <input class="ps-1" asp-for="@Model.LuarKota" type="radio" value="@true">
+                    <label class="ps-1" asp-for="@Model.LuarKota">Luar Kota</label>
                 </div>
-                <form>
-                    <div class="input_grup">
-                        <input type="text" name="kode" required />
-                        <label for="kode">Harga dengan Sopir*</label>
-                    </div>
-                    <div class="input_grup">
-                        <input type="text" name="kode" required />
-                        <label for="kode">Nama Lengkap*</label>
-                    </div>
-                    <div class="input_grup">
-                        <input type="text" name="kode" required />
-                        <label for="kode">Nomor Telepon*</label>
-                    </div>
-                    <div class="input_grup">
-                        <input type="text" name="kode" value="" required />
-                        <label for="kode">Alamat*</label>
-                    </div>
-                </form>
+                <span asp-validation-for="@Model.LuarKota"></span>
+
+                <div class="input_grup">
+                    <input asp-for="@Model.MaksHariSewa" />
+                    <label asp-for="@Model.MaksHariSewa"></label>
+                </div>
+                <span asp-validation-for="@Model.MaksHariSewa"></span>
+
+                <label>Fasilitas Sopir</label>
+                <div class="radio_grup mb-2 mt-1">
+                    <input type="radio" asp-for="@Model.Sopir" value="@false" checked>
+                    <label asp-for="@Model.Sopir">Tanpa Sopir</label><br>
+
+                    <input class="ps-1" asp-for="@Model.Sopir" type="radio" value="@true">
+                    <label class="ps-1" asp-for="@Model.Sopir">Dengan Sopir</label>
+                </div>
+                <span asp-validation-for="@Model.LuarKota"></span>
             </div>
+
             <div class="button_tambah_mobil">
-                <a class="btn">Tambah Mobil</a>
+                <button class="btn" type="submit">Tambah Mobil</button>
             </div>
         </div>
     </section>
