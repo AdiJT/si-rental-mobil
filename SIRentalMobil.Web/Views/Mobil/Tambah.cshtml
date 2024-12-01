@@ -1,4 +1,6 @@
-﻿<section class="section__container judul__detail__mobil__container">
+﻿@model TambahVM
+
+<section class="section__container judul__detail__mobil__container">
     <div class="breadcrumbs">
         <a href="dashboard_pemilik.html">Dashboard Pemilik</a>
         <i class="ri-arrow-right-s-line separator"></i>
@@ -10,127 +12,150 @@
     </div>
 </section>
 
-<section class="section__container tambah_mobil_container">
-    <div class="sisi_kiri_tambah_mobil col-md-6">
-        <!-- Informasi Penyewa -->
-        <div class="informasi_tambah_mobil">
-            <div class="judul_informasi_tambah_mobil">
-                <h3>Informasi Mobil</h3>
-            </div>
-            <form>
-                <div class="input_grup">
-                    <input type="text" name="kode" required />
-                    <label for="kode">Merk Mobil*</label>
+<form asp-action="@nameof(MobilController.Tambah)" method="post" enctype="multipart/form-data">
+    <section class="section__container tambah_mobil_container">
+        <div class="sisi_kiri_tambah_mobil col-md-6">
+            <!-- Informasi Penyewa -->
+            <div class="informasi_tambah_mobil">
+                <div class="judul_informasi_tambah_mobil">
+                    <h3>Informasi Mobil</h3>
                 </div>
                 <div class="input_grup">
-                    <input type="text" name="kode" required />
-                    <label for="kode">Tipe Mobil*</label>
+                    <input asp-for="@Model.Nama" />
+                    <label asp-for="@Model.Nama"></label>
                 </div>
-                <label>Foto Mobil</label>
+                <span asp-validation-for="@Model.Nama"></span>
                 <div class="input_grup">
-                    <input type="file" name="foto_mobil" id="foto_mobil" accept="image/*" required />
-                    <label for="foto_mobil"></label>
+                    <input asp-for="@Model.Jenis" />
+                    <label asp-for="@Model.Jenis"></label>
                 </div>
-                <div class="input_grup">
-                    <input type="number" name="kode" value="" required />
-                    <label for="kode">Jumlah Penumpang*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" value="" required />
-                    <label for="kode">Plat Nomor*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="number" name="kode" value="" required />
-                    <label for="kode">Tahun Keluaran*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" value="" required />
-                    <label for="kode">Warna Dominan Mobil*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="number" name="kode" value="" required />
-                    <label for="kode">Kapasitas Mesin*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" value="" required />
-                    <label for="kode">Jenis Transmisi*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" value="" required />
-                    <label for="kode">Jenis Bahan Bakar*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" value="" required />
-                    <label for="kode">Ketentuan Jarak Tempuh*</label>
-                </div>
-                <label>Deskripsi Tambahan</label>
-                <div class="input_grup">
-                    <textarea name="alamat" rows="4" required></textarea>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="sisi_kanan_tambah_mobil col-md-6">
-        <!-- Informasi Penyewa -->
-        <div class="informasi_tambah_mobil">
-            <div class="judul_informasi_tambah_mobil">
-                <h3>Informasi Pemesanan</h3>
-            </div>
-            <form>
+                <span asp-validation-for="@Model.Jenis"></span>
 
-                <label>Area Pemakaian</label>
-                <div class="radio_grup mb-2 mt-1">
-                    <input type="radio" id="dalam_kota" name="area_pemakaian" value="dalam_kota">
-                    <label class="ps-1 pe-2" for="dalam_kota">Dalam Kota</label><br>
-                    <input class="ps-1" type="radio" id="luar_kota" name="area_pemakaian" value="luar_kota" checked>
-                    <label class="ps-1" for="luar_kota">Luar Kota</label>
-                </div>
-
-                <label>Batas Waktu Pemesanan</label>
+                <label asp-for="@Model.FotoMobil"></label>
                 <div class="input_grup">
-                    <input type="text" id="datepicker" placeholder="Pilih tanggal" required />
-                    <label for="datepicker"></label>
+                    <input type="file" asp-for="@Model.FotoMobil" />
                 </div>
+                <span asp-validation-for="@Model.FotoMobil"></span>
 
-                <label>Fasilitas Sopir</label>
-                <div class="radio_grup mb-1 mt-1">
-                    <input type="radio" id="dengan_sopir" name="fasilitas_sopir" value="dengan_sopir">
-                    <label class="ps-1 pe-2" for="dengan_sopir">Dengan Sopir</label><br>
-                    <input class="ps-1" type="radio" id="tanpa_sopir" name="fasilitas_sopir" value="tanpa_sopir" checked>
-                    <label class="ps-1" for="tanpa_sopir">Tanpa Sopir</label>
-                </div>
                 <div class="input_grup">
-                    <input type="text" name="kode" required />
-                    <label for="kode">Harga tanpa Sopir*</label>
+                    <input type="number" asp-for="@Model.MaksPenumpang" />
+                    <label asp-for="@Model.MaksPenumpang"></label>
                 </div>
-            </form>
-        </div>
-        <!-- Informasi Penyewa -->
-        <div class="informasi_tambah_mobil">
-            <div class="judul_informasi_tambah_mobil">
-                <h3>Informasi Sopir</h3>
+                <span asp-validation-for="@Model.MaksPenumpang"></span>
+
+                <div class="input_grup">
+                    <input asp-for="@Model.NomorPlat" />
+                    <label asp-for="@Model.NomorPlat"></label>
+                </div>
+                <span asp-validation-for="@Model.NomorPlat"></span>
+
+                <div class="input_grup">
+                    <input type="number" asp-for="@Model.Tahun" />
+                    <label asp-for="@Model.Tahun"></label>
+                </div>
+                <span asp-validation-for="@Model.Tahun"></span>
+
+                <div class="input_grup">
+                    <input type="number" asp-for="@Model.CC" />
+                    <label asp-for="@Model.CC"></label>
+                </div>
+                <span asp-validation-for="@Model.CC"></span>
+
+                <label asp-for="@Model.JenisTransmisi"></label>
+                <div class="input_grup">
+                    <select asp-for="@Model.JenisTransmisi">
+                        @foreach (var jenisTransmisi in Enum.GetValues<JenisTransmisi>())
+                        {
+                            <option value="@jenisTransmisi">@jenisTransmisi.Humanize()</option>
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="@Model.JenisTransmisi"></span>
+
+                <label asp-for="@Model.JenisBensin"></label>
+                <div class="input_grup">
+                    <select asp-for="@Model.JenisBensin">
+                        @foreach (var jenisBensin in Enum.GetValues<JenisBensin>())
+                        {
+                            <option value="@jenisBensin">@jenisBensin.Humanize()</option>
+                        }
+                    </select>
+                </div>
+                <span asp-validation-for="@Model.JenisBensin"></span>
+
+                <label asp-for="@Model.Dekripsi"></label>
+                <div class="input_grup">
+                    <textarea asp-for="@Model.Dekripsi"></textarea>
+                </div>
+                <span asp-validation-for="@Model.CC"></span>
             </div>
-            <form>
-                <div class="input_grup">
-                    <input type="text" name="kode" required />
-                    <label for="kode">Harga dengan Sopir*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" required />
-                    <label for="kode">Nama Lengkap*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" required />
-                    <label for="kode">Nomor Telepon*</label>
-                </div>
-                <div class="input_grup">
-                    <input type="text" name="kode" value="" required />
-                    <label for="kode">Alamat*</label>
-                </div>
-            </form>
         </div>
-        <div class="button_tambah_mobil">
-            <a class="btn">Tambah Mobil</a>
+        <div class="sisi_kanan_tambah_mobil col-md-6">
+            <!-- Informasi Penyewa -->
+            <div class="informasi_tambah_mobil">
+                <div class="judul_informasi_tambah_mobil">
+                    <h3>Informasi Pemesanan</h3>
+                </div>
+                <form>
+
+                    <label>Area Pemakaian</label>
+                    <div class="radio_grup mb-2 mt-1">
+                        <input type="radio" id="dalam_kota" name="area_pemakaian" value="dalam_kota">
+                        <label class="ps-1 pe-2" for="dalam_kota">Dalam Kota</label><br>
+                        <input class="ps-1" type="radio" id="luar_kota" name="area_pemakaian" value="luar_kota" checked>
+                        <label class="ps-1" for="luar_kota">Luar Kota</label>
+                    </div>
+
+                    <label>Batas Waktu Pemesanan</label>
+                    <div class="input_grup">
+                        <input type="text" id="datepicker" placeholder="Pilih tanggal" required />
+                        <label for="datepicker"></label>
+                    </div>
+
+                    <label>Fasilitas Sopir</label>
+                    <div class="radio_grup mb-1 mt-1">
+                        <input type="radio" id="dengan_sopir" name="fasilitas_sopir" value="dengan_sopir">
+                        <label class="ps-1 pe-2" for="dengan_sopir">Dengan Sopir</label><br>
+                        <input class="ps-1" type="radio" id="tanpa_sopir" name="fasilitas_sopir" value="tanpa_sopir" checked>
+                        <label class="ps-1" for="tanpa_sopir">Tanpa Sopir</label>
+                    </div>
+                    <div class="input_grup">
+                        <input type="text" name="kode" required />
+                        <label for="kode">Harga tanpa Sopir*</label>
+                    </div>
+                </form>
+            </div>
+            <!-- Informasi Penyewa -->
+            <div class="informasi_tambah_mobil">
+                <div class="judul_informasi_tambah_mobil">
+                    <h3>Informasi Sopir</h3>
+                </div>
+                <form>
+                    <div class="input_grup">
+                        <input type="text" name="kode" required />
+                        <label for="kode">Harga dengan Sopir*</label>
+                    </div>
+                    <div class="input_grup">
+                        <input type="text" name="kode" required />
+                        <label for="kode">Nama Lengkap*</label>
+                    </div>
+                    <div class="input_grup">
+                        <input type="text" name="kode" required />
+                        <label for="kode">Nomor Telepon*</label>
+                    </div>
+                    <div class="input_grup">
+                        <input type="text" name="kode" value="" required />
+                        <label for="kode">Alamat*</label>
+                    </div>
+                </form>
+            </div>
+            <div class="button_tambah_mobil">
+                <a class="btn">Tambah Mobil</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

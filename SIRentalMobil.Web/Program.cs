@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using SIRentalMobil.Domain.Entities;
 using SIRentalMobil.Infrastructure;
 using SIRentalMobil.Web.Authentication;
+using SIRentalMobil.Web.Configurations;
+using SIRentalMobil.Web.Services.FileUpload;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
             });
 
 builder.Services.AddScoped<ISignInManager, SignInManager>();
+
+builder.Services.Configure<FileConfigurationOptions>(builder.Configuration.GetSection(FileConfigurationOptions.FileConfiguration));
+builder.Services.AddScoped((sp) =>
+{
+    return sp.GetRequiredService<IOptionsSnapshot<FileConfigurationOptions>>().Value;
+});
+builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 
 var app = builder.Build();
 

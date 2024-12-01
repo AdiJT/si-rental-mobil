@@ -121,7 +121,7 @@ public static class ModelBuilderExtension
             {
                 Id = 1,
                 Nama = "Toyota Avanza",
-                Jenis = "MPV",
+                Jenis = "Toyota",
                 CC = 1500,
                 Tahun = 2020,
                 NomorPlat = "DH1234",
@@ -141,7 +141,7 @@ public static class ModelBuilderExtension
             {
                 Id = 2,
                 Nama = "Honda Jazz",
-                Jenis = "Hatchback",
+                Jenis = "Honda",
                 CC = 1300,
                 Tahun = 2021,
                 NomorPlat = "DH1234",
@@ -161,7 +161,7 @@ public static class ModelBuilderExtension
             {
                 Id = 3,
                 Nama = "Mitsubishi Xpander",
-                Jenis = "MPV",
+                Jenis = "Mitsubishi",
                 CC = 1500,
                 Tahun = 2019,
                 NomorPlat = "DH1234",
@@ -183,7 +183,7 @@ public static class ModelBuilderExtension
             {
                 Id = 4,
                 Nama = "Daihatsu Sigra",
-                Jenis = "LMPV",
+                Jenis = "Daihatsu",
                 CC = 1200,
                 Tahun = 2022,
                 NomorPlat = "DH1234",
@@ -203,7 +203,7 @@ public static class ModelBuilderExtension
             {
                 Id = 5,
                 Nama = "Toyota Rush",
-                Jenis = "SUV",
+                Jenis = "Toyota",
                 CC = 1500,
                 Tahun = 2021,
                 NomorPlat = "DH1234",
@@ -223,7 +223,7 @@ public static class ModelBuilderExtension
             {
                 Id = 6,
                 Nama = "Suzuki Ertiga",
-                Jenis = "MPV",
+                Jenis = "Suzuki",
                 CC = 1400,
                 Tahun = 2020,
                 NomorPlat = "DH1234",
@@ -245,7 +245,7 @@ public static class ModelBuilderExtension
             {
                 Id = 7,
                 Nama = "Kijang Innova",
-                Jenis = "MPV",
+                Jenis = "Kijang",
                 CC = 2000,
                 Tahun = 2021,
                 NomorPlat = "DH1234",
@@ -265,7 +265,7 @@ public static class ModelBuilderExtension
             {
                 Id = 8,
                 Nama = "Toyota Fortuner",
-                Jenis = "SUV",
+                Jenis = "Toyota",
                 CC = 2500,
                 Tahun = 2022,
                 NomorPlat = "DH1234",
@@ -285,7 +285,7 @@ public static class ModelBuilderExtension
             {
                 Id = 9,
                 Nama = "Honda CRV",
-                Jenis = "SUV",
+                Jenis = "Honda",
                 CC = 2400,
                 Tahun = 2020,
                 NomorPlat = "DH1234",
@@ -307,7 +307,7 @@ public static class ModelBuilderExtension
             {
                 Id = 10,
                 Nama = "Daihatsu Ayla",
-                Jenis = "Hatchback",
+                Jenis = "Daihatsu",
                 CC = 1200,
                 Tahun = 2022,
                 NomorPlat = "DH1234",
@@ -327,7 +327,7 @@ public static class ModelBuilderExtension
             {
                 Id = 11,
                 Nama = "Toyota Agya",
-                Jenis = "Hatchback",
+                Jenis = "Toyota",
                 CC = 1200,
                 Tahun = 2021,
                 NomorPlat = "DH1234",
@@ -347,7 +347,7 @@ public static class ModelBuilderExtension
             {
                 Id = 12,
                 Nama = "Honda Mobilio",
-                Jenis = "MPV",
+                Jenis = "Honda",
                 CC = 1500,
                 Tahun = 2020,
                 NomorPlat = "DH1234",
@@ -369,7 +369,7 @@ public static class ModelBuilderExtension
             {
                 Id = 13,
                 Nama = "Toyota HiAce",
-                Jenis = "Van",
+                Jenis = "Toyota",
                 CC = 2800,
                 Tahun = 2019,
                 NomorPlat = "DH1234",
@@ -389,7 +389,7 @@ public static class ModelBuilderExtension
             {
                 Id = 14,
                 Nama = "Isuzu Elf",
-                Jenis = "Van",
+                Jenis = "Isuzu",
                 CC = 3000,
                 Tahun = 2020,
                 NomorPlat = "DH1234",
@@ -409,7 +409,7 @@ public static class ModelBuilderExtension
             {
                 Id = 15,
                 Nama = "Suzuki APV",
-                Jenis = "MPV",
+                Jenis = "Suzuki",
                 CC = 1500,
                 Tahun = 2021,
                 NomorPlat = "DH1234",
