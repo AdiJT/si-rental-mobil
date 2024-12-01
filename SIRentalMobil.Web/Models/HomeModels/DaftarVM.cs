@@ -40,6 +40,7 @@ public class DaftarVM
     public string Password { get; set; } = string.Empty;
 
     [Display(Name = "Konfirmasi Password")]
+    [Required(ErrorMessage = "{0} harus diisi")]
     [Compare(nameof(Password), ErrorMessage = "{0} harus sama dengan {1}")]
     [DataType(DataType.Password)]
     public string PasswordConfirmation { get; set; } = string.Empty;
