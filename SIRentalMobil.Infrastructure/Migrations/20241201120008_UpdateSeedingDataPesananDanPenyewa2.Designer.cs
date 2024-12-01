@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIRentalMobil.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIRentalMobil.Infrastructure.Database;
 namespace SIRentalMobil.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241201120008_UpdateSeedingDataPesananDanPenyewa2")]
+    partial class UpdateSeedingDataPesananDanPenyewa2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -512,9 +515,9 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             PenyewaId = 1,
                             Sopir = true,
                             Status = 0,
-                            TanggalAkhirSewa = new DateTime(2024, 12, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalAwalSewa = new DateTime(2024, 12, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalPesan = new DateTime(2024, 12, 3, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            TanggalAkhirSewa = new DateTime(2024, 2, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalAwalSewa = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalPesan = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -524,8 +527,8 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             PenyewaId = 7,
                             Sopir = false,
                             Status = 2,
-                            TanggalAkhirSewa = new DateTime(2024, 12, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalAwalSewa = new DateTime(2024, 12, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalAkhirSewa = new DateTime(2024, 2, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalAwalSewa = new DateTime(2024, 11, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             TanggalPesan = new DateTime(2024, 11, 30, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new

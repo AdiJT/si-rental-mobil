@@ -32,8 +32,16 @@ public class PemilikController : Controller
         return View(user);
     }
 
-    public IActionResult DetailPemesanan()
+    public async Task<IActionResult> DetailPemesanan(int id)
     {
-        return View();
+        var pesanan = await _appDbContext.TblPesanan
+            .Include(p => p.Penyewa)
+            .Include(p => p.Mobil).ThenInclude(m => m.Pemilik)
+            .Include(p => p.Pembayaran)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if(pesanan is null) return NotFound();
+
+        return View(pesanan);
     }
 }

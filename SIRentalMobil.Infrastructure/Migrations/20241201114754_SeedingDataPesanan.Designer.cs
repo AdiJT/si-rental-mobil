@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SIRentalMobil.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SIRentalMobil.Infrastructure.Database;
 namespace SIRentalMobil.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241201114754_SeedingDataPesanan")]
+    partial class SeedingDataPesanan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,7 +150,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Toyota Avanza",
                             NomorPlat = "DH1234",
-                            PemilikId = 2,
+                            PemilikId = 1,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2020,
@@ -167,7 +170,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 5,
                             Nama = "Honda Jazz",
                             NomorPlat = "DH1234",
-                            PemilikId = 2,
+                            PemilikId = 1,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2021,
@@ -187,7 +190,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Mitsubishi Xpander",
                             NomorPlat = "DH1234",
-                            PemilikId = 2,
+                            PemilikId = 1,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2019,
@@ -207,7 +210,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Daihatsu Sigra",
                             NomorPlat = "DH1234",
-                            PemilikId = 3,
+                            PemilikId = 2,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2022,
@@ -227,7 +230,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Toyota Rush",
                             NomorPlat = "DH1234",
-                            PemilikId = 3,
+                            PemilikId = 2,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2021,
@@ -247,7 +250,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Suzuki Ertiga",
                             NomorPlat = "DH1234",
-                            PemilikId = 3,
+                            PemilikId = 2,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2020,
@@ -267,7 +270,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Kijang Innova",
                             NomorPlat = "DH1234",
-                            PemilikId = 4,
+                            PemilikId = 3,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2021,
@@ -287,7 +290,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Toyota Fortuner",
                             NomorPlat = "DH1234",
-                            PemilikId = 4,
+                            PemilikId = 3,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2022,
@@ -307,7 +310,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Honda CRV",
                             NomorPlat = "DH1234",
-                            PemilikId = 4,
+                            PemilikId = 3,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2020,
@@ -327,7 +330,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 5,
                             Nama = "Daihatsu Ayla",
                             NomorPlat = "DH1234",
-                            PemilikId = 5,
+                            PemilikId = 4,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2022,
@@ -347,7 +350,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 5,
                             Nama = "Toyota Agya",
                             NomorPlat = "DH1234",
-                            PemilikId = 5,
+                            PemilikId = 4,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2021,
@@ -367,7 +370,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Honda Mobilio",
                             NomorPlat = "DH1234",
-                            PemilikId = 5,
+                            PemilikId = 4,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2020,
@@ -387,7 +390,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 15,
                             Nama = "Toyota HiAce",
                             NomorPlat = "DH1234",
-                            PemilikId = 6,
+                            PemilikId = 5,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2019,
@@ -407,7 +410,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 16,
                             Nama = "Isuzu Elf",
                             NomorPlat = "DH1234",
-                            PemilikId = 6,
+                            PemilikId = 5,
                             Sopir = true,
                             Status = 0,
                             Tahun = 2020,
@@ -427,7 +430,7 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             MaksPenumpang = 7,
                             Nama = "Suzuki APV",
                             NomorPlat = "DH1234",
-                            PemilikId = 6,
+                            PemilikId = 5,
                             Sopir = false,
                             Status = 0,
                             Tahun = 2021,
@@ -512,33 +515,9 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             PenyewaId = 1,
                             Sopir = true,
                             Status = 0,
-                            TanggalAkhirSewa = new DateTime(2024, 12, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalAwalSewa = new DateTime(2024, 12, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalPesan = new DateTime(2024, 12, 3, 12, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            LuarKota = false,
-                            MobilId = 2,
-                            PenyewaId = 7,
-                            Sopir = false,
-                            Status = 2,
-                            TanggalAkhirSewa = new DateTime(2024, 12, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalAwalSewa = new DateTime(2024, 12, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalPesan = new DateTime(2024, 11, 30, 12, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            LuarKota = false,
-                            MobilId = 1,
-                            PenyewaId = 8,
-                            Sopir = false,
-                            Status = 2,
-                            TanggalAkhirSewa = new DateTime(2024, 11, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalAwalSewa = new DateTime(2024, 11, 29, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            TanggalPesan = new DateTime(2024, 11, 28, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            TanggalAkhirSewa = new DateTime(2024, 2, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalAwalSewa = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            TanggalPesan = new DateTime(2024, 2, 1, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -590,28 +569,6 @@ namespace SIRentalMobil.Infrastructure.Migrations
                             Email = "johndoe@gmail.com",
                             NIK = "1234567890123456",
                             Nama = "John Doe",
-                            NoHP = "081234567890",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDOL61un4F6xOO9n71b0sKrh5BaGkSo4Brjy0O7Kfle+q33ZWfDN9/rAUaGcuu5XWA==",
-                            Role = "Penyewa"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Alamat = "Jln Perca, Kelurahan Airnona, Kecamatan Kota Raja, Kota Kupang, Nusa Tenggara Timur",
-                            Email = "johndoe2@gmail.com",
-                            NIK = "1234567890123455",
-                            Nama = "John Doe 2",
-                            NoHP = "081234567890",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDOL61un4F6xOO9n71b0sKrh5BaGkSo4Brjy0O7Kfle+q33ZWfDN9/rAUaGcuu5XWA==",
-                            Role = "Penyewa"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Alamat = "Jln Perca, Kelurahan Airnona, Kecamatan Kota Raja, Kota Kupang, Nusa Tenggara Timur",
-                            Email = "johndoe3@gmail.com",
-                            NIK = "1234567890123459",
-                            Nama = "John Doe 3",
                             NoHP = "081234567890",
                             PasswordHash = "AQAAAAIAAYagAAAAEDOL61un4F6xOO9n71b0sKrh5BaGkSo4Brjy0O7Kfle+q33ZWfDN9/rAUaGcuu5XWA==",
                             Role = "Penyewa"

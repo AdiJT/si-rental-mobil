@@ -87,7 +87,11 @@
                         <td>@pesanan.TanggalPesan.ToString("dd MMMM yyyy, hh:mm", Localization.CultureInfo)</td>
                         <td>@pesanan.Penyewa.Nama</td>
                         <td>@pesanan.Mobil.Nama</td>
-                        <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesan</a></td>
+                        <td>
+                            <a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" asp-route-id="@pesanan.Id" class="btn-detail">
+                                Detail
+                            </a>
+                        </td>
                         <td>
                             <i class="ri-check-line btn-action approve"></i>
                             <i class="ri-close-line btn-action reject"></i>
@@ -123,7 +127,11 @@
                         <td>@pesanan.Penyewa.Nama</td>
                         <td>@pesanan.Mobil.Nama</td>
                         <td>@pesanan.Status.Humanize()</td>
-                        <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                        <td>
+                            <a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" asp-route-id="@pesanan.Id" class="btn-detail">
+                                Detail
+                            </a>
+                        </td>
                     </tr>
                 }
             </tbody>
@@ -154,7 +162,11 @@
                         <td>@pesanan.Penyewa.Nama</td>
                         <td>@pesanan.Mobil.Nama</td>
                         <td>@pesanan.Status.Humanize()</td>
-                        <td><a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" class="btn-detail">Detail Pemesanan</a></td>
+                        <td>
+                            <a asp-area="" asp-controller="Pemilik" asp-action="DetailPemesanan" asp-route-id="@pesanan.Id" class="btn-detail">
+                                Detail
+                            </a>
+                        </td>
                     </tr>
                 }
             </tbody>

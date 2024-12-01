@@ -21,6 +21,28 @@ public static class ModelBuilderExtension
                 Email = "johndoe@gmail.com",
                 PasswordHash = "AQAAAAIAAYagAAAAEDOL61un4F6xOO9n71b0sKrh5BaGkSo4Brjy0O7Kfle+q33ZWfDN9/rAUaGcuu5XWA==",
                 Role = UserRoles.Penyewa
+            },
+            new User
+            {
+                Id = 7,
+                NIK = "1234567890123455",
+                Nama = "John Doe 2",
+                Alamat = "Jln Perca, Kelurahan Airnona, Kecamatan Kota Raja, Kota Kupang, Nusa Tenggara Timur",
+                NoHP = "081234567890",
+                Email = "johndoe2@gmail.com",
+                PasswordHash = "AQAAAAIAAYagAAAAEDOL61un4F6xOO9n71b0sKrh5BaGkSo4Brjy0O7Kfle+q33ZWfDN9/rAUaGcuu5XWA==",
+                Role = UserRoles.Penyewa
+            },
+            new User
+            {
+                Id = 8,
+                NIK = "1234567890123459",
+                Nama = "John Doe 3",
+                Alamat = "Jln Perca, Kelurahan Airnona, Kecamatan Kota Raja, Kota Kupang, Nusa Tenggara Timur",
+                NoHP = "081234567890",
+                Email = "johndoe3@gmail.com",
+                PasswordHash = "AQAAAAIAAYagAAAAEDOL61un4F6xOO9n71b0sKrh5BaGkSo4Brjy0O7Kfle+q33ZWfDN9/rAUaGcuu5XWA==",
+                Role = UserRoles.Penyewa
             }
         );
         #endregion
@@ -135,7 +157,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 1
+                PemilikId = 2
             },
             new
             {
@@ -155,7 +177,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 1
+                PemilikId = 2
             },
             new
             {
@@ -175,7 +197,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 1
+                PemilikId = 2
             },
 
             // Mobil untuk Pemilik 2
@@ -197,7 +219,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 2
+                PemilikId = 3
             },
             new
             {
@@ -217,7 +239,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 2
+                PemilikId = 3
             },
             new
             {
@@ -237,7 +259,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 2
+                PemilikId = 3
             },
 
             // Mobil untuk Pemilik 3
@@ -259,7 +281,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 3
+                PemilikId = 4
             },
             new
             {
@@ -279,7 +301,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 3
+                PemilikId = 4
             },
             new
             {
@@ -299,7 +321,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 3
+                PemilikId = 4
             },
 
             // Mobil untuk Pemilik 4
@@ -321,7 +343,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 4
+                PemilikId = 5
             },
             new
             {
@@ -341,7 +363,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 4
+                PemilikId = 5
             },
             new
             {
@@ -361,7 +383,7 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 4
+                PemilikId = 5
             },
 
             // Mobil untuk Pemilik 5
@@ -383,7 +405,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 5
+                PemilikId = 6
             },
             new
             {
@@ -403,7 +425,7 @@ public static class ModelBuilderExtension
                 Sopir = true,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 5
+                PemilikId = 6
             },
             new
             {
@@ -423,9 +445,50 @@ public static class ModelBuilderExtension
                 Sopir = false,
                 UrlGambar = new Uri("/assets/deals-1.png", UriKind.Relative),
                 Status = StatusMobil.Tersedia,
-                PemilikId = 5
+                PemilikId = 6
             }
         );
+        #endregion
+
+        #region Pemesanan
+        modelBuilder.Entity<Pesanan>().HasData(
+            new
+            {
+                Id = 1,
+                LuarKota = false,
+                Sopir = true,
+                TanggalPesan = new DateTime(2024, 12, 03, 12, 00, 00),
+                Status = StatusPesanan.BelumDiterima,
+                TanggalAwalSewa = new DateTime(2024, 12, 03, 12, 00, 00),
+                TanggalAkhirSewa = new DateTime(2024, 12, 04, 12, 00, 00),
+                PenyewaId = 1,
+                MobilId = 3
+            },
+            new
+            {
+                Id = 2,
+                LuarKota = false,
+                Sopir = false,
+                TanggalPesan = new DateTime(2024, 11, 30, 12, 00, 00),
+                Status = StatusPesanan.SudahBayar,
+                TanggalAwalSewa = new DateTime(2024, 12, 1, 12, 00, 00),
+                TanggalAkhirSewa = new DateTime(2024, 12, 3, 12, 00, 00),
+                PenyewaId = 7,
+                MobilId = 2
+            },
+            new
+            {
+                Id = 3,
+                LuarKota = false,
+                Sopir = false,
+                TanggalPesan = new DateTime(2024, 11, 28, 12, 00, 00),
+                Status = StatusPesanan.SudahBayar,
+                TanggalAwalSewa = new DateTime(2024, 11, 29, 12, 00, 00),
+                TanggalAkhirSewa = new DateTime(2024, 11, 30, 12, 00, 00),
+                PenyewaId = 8,
+                MobilId = 1
+            }
+        );        
         #endregion
 
         return modelBuilder;
