@@ -179,6 +179,10 @@ input, select, textarea {
     font-family: "Lexend", sans-serif !important;
 }
 
+.form-control {
+    cursor: pointer;
+}
+
 /* Input Style */
 .input_grup {
     position: relative;
