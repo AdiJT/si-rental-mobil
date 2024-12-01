@@ -26,7 +26,6 @@ public class DaftarVM
 
     [Display(Name = "Role")]
     [Required(ErrorMessage = "{0} harus diisi")]
-    [RegularExpression($"^(${UserRoles.Pemilik}|{UserRoles.Penyewa})$", ErrorMessage = "{0} tidak valid")]
     public string Role { get; set; } = string.Empty;
 
     [Display(Name = "Email")]
