@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using SIRentalMobil.Domain.Entities;
 using SIRentalMobil.Domain.Enums;
 using SIRentalMobil.Infrastructure.Database;
@@ -23,9 +24,17 @@ public class PenyewaController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var user = await _signInManager.GetUser();
+        if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
+
+        user = await _appDbContext.TblUser
+            .Include(p => p.DaftarPesanan).ThenInclude(p => p.Mobil)
+            .Include(p => p.DaftarPesanan).ThenInclude(p => p.Pembayaran)
+            .FirstAsync(u => u == user);
+
+        return View(user);
     }
 
     public async Task<IActionResult> TambahPesanan(int id, bool sopir, bool luarKota, DateOnly tanggalMulai, DateOnly tanggalAkhir)

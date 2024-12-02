@@ -1,7 +1,7 @@
 ﻿@model User
 
 @{
-    ViewData["Title"] = "Dashboard | Pemyewa";
+    ViewData["Title"] = "Dashboard | Pemilik";
     var daftarPesananMasuk = Model.DaftarMobil.SelectMany(m => m.DaftarPesanan).Where(p => p.Status == StatusPesanan.BelumDiterima).ToList();
     var daftarPesananBerjalan = Model.DaftarMobil.SelectMany(m => m.DaftarPesanan)
         .Where(p => (p.Status == StatusPesanan.BelumBayar || (p.Status == StatusPesanan.SudahBayar && p.TanggalAkhirSewa >= DateTime.Now)))

@@ -1,1 +1,98 @@
-﻿
+﻿@model User
+
+@{
+    ViewData["Title"] = "Dashboard | Penyewa";
+    var daftarPesananBerjalan = Model.DaftarPesanan
+        .Where(p => p.Status == StatusPesanan.BelumBayar || p.Status == StatusPesanan.BelumDiterima || (p.Status == StatusPesanan.SudahBayar && p.TanggalAkhirSewa >= DateTime.Now))
+        .ToList();
+
+    var riwayatPesanan = Model.DaftarPesanan
+        .Where(p => (p.Status == StatusPesanan.Batal || (p.Status == StatusPesanan.SudahBayar && p.TanggalAkhirSewa < DateTime.Now)))
+        .ToList();
+}
+
+<section class="section__container pesanan__masuk__container">
+    <div class="informasi_penyewa_pemesanan">
+        <div class="judul_informasi_penyewa_pemesanan">
+            <h3>Data Pribadi</h3>
+        </div>
+        <label for="kode">Nama Lengkap*</label>
+        <div class="input_grup">
+            <input type="text" name="kode" value="@Model.Nama" required readonly />
+        </div>
+        <label for="kode">Nomor Telepon*</label>
+        <div class="input_grup">
+            <input type="text" name="kode" value="@Model.NoHP" required readonly />
+        </div>
+        <label for="kode">Alamat*</label>
+        <div class="input_grup">
+            <input type="text" name="kode" value="@Model.Alamat" required readonly />
+        </div>
+    </div>
+</section>
+
+<section class="section__container pesanan__masuk__container">
+    <div class="judul_pesanan_masuk">
+        <h3>Pesanan Berjalan</h3>
+    </div>
+    <div class="">
+        <table class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Waktu Pesanan</th>
+                    <th>Tipe Mobil</th>
+                    <th>Status</th>
+                    <th>Detail Pemesanan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pesanan in daftarPesananBerjalan)
+                {
+                    <tr>
+                        <td>@pesanan.TanggalPesan.ToString("dd MMMM yyyy, hh:mm", Localization.CultureInfo)</td>
+                        <td>@pesanan.Mobil.Nama</td>
+                        <td>@pesanan.Status.Humanize()</td>
+                        <td>
+                            <a asp-area="" asp-controller="Penyewa" asp-action="DetailPesanan" asp-route-id="@pesanan.Id" class="btn-detail">
+                                Detail
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="section__container riwayat__container">
+    <div class="judul_riwayat">
+        <h3>Riwayat Pesanan Mobil</h3>
+    </div>
+    <div class="">
+        <table class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Waktu Pesanan</th>
+                    <th>Tipe Mobil</th>
+                    <th>Status</th>
+                    <th>Detail Pemesanan</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pesanan in riwayatPesanan)
+                {
+                    <tr>
+                        <td>@pesanan.TanggalPesan.ToString("dd MMMM yyyy, HH:mm", Localization.CultureInfo)</td>
+                        <td>@pesanan.Penyewa.Nama</td>
+                        <td>@pesanan.Status.Humanize()</td>
+                        <td>
+                            <a asp-area="" asp-controller="Penyewa" asp-action="DetailPesanan" asp-route-id="@pesanan.Id" class="btn-detail">
+                                Detail
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
