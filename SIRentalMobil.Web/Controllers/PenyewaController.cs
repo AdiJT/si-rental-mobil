@@ -46,7 +46,7 @@ public class PenyewaController : Controller
             .AnyAsync(p =>
                 p.Penyewa == user &&
                 (p.Status == StatusPesanan.BelumDiterima || p.Status == StatusPesanan.BelumBayar ||
-                    (p.Status == StatusPesanan.SudahBayar && p.TanggalAkhirSewa <= DateTime.Now)));
+                    (p.Status == StatusPesanan.SudahBayar && p.TanggalAkhirSewa >= DateTime.Now)));
 
         if (!bisaPesan) return View("TidakBisaPesan");
 
