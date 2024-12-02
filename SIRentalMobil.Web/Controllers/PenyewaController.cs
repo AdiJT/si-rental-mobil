@@ -28,12 +28,12 @@ public class PenyewaController : Controller
         return View();
     }
 
-    public async Task<IActionResult> Pemesanan(int id, bool sopir, bool luarKota, DateOnly tanggalMulai, DateOnly tanggalAkhir)
+    public async Task<IActionResult> TambahPesanan(int id, bool sopir, bool luarKota, DateOnly tanggalMulai, DateOnly tanggalAkhir)
     {
         var mobil = await _appDbContext.TblMobil.FirstOrDefaultAsync(m => m.Id == id);
         if (mobil is null) return NotFound();
 
-        return View(new PemesananVM
+        return View(new TambahPesananVM
         {
             MobilId = id,
             TanggalAkhir = tanggalAkhir,
@@ -44,7 +44,7 @@ public class PenyewaController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Pemesanan(PemesananVM vm)
+    public async Task<IActionResult> TambahPesanan(TambahPesananVM vm)
     {
         if (!ModelState.IsValid) return View(vm);
 
@@ -100,8 +100,72 @@ public class PenyewaController : Controller
         return View(pesanan);
     }
 
-    public IActionResult Pembayaran()
+    public async Task<IActionResult> Pembayaran(int id)
     {
-        return View();
+        var user = await _signInManager.GetUser();
+        if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
+
+        var pesanan = await _appDbContext.TblPesanan
+            .Include(p => p.Mobil).ThenInclude(m => m.Pemilik)
+            .Include(p => p.Penyewa)
+            .Include(p => p.Pembayaran)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if (pesanan is null) return NotFound();
+
+        if (pesanan.Penyewa != user) return Unauthorized();
+
+        if (pesanan.Status != StatusPesanan.BelumBayar) return BadRequest();
+
+        return View(new PembayaranVM { PesananId = id });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Pembayaran(PembayaranVM vm)
+    {
+        var user = await _signInManager.GetUser();
+        if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
+
+        var pesanan = await _appDbContext.TblPesanan
+            .Include(p => p.Mobil).ThenInclude(m => m.Pemilik)
+            .Include(p => p.Penyewa)
+            .Include(p => p.Pembayaran)
+            .FirstOrDefaultAsync(p => p.Id == vm.PesananId);
+
+        if (pesanan is null) return BadRequest();
+
+        if (pesanan.Penyewa != user) return Unauthorized();
+
+        if (pesanan.Status != StatusPesanan.BelumBayar) return BadRequest();
+
+        var metodePembayaran = await _appDbContext.TblMetodePembayaran.FirstOrDefaultAsync(m => m.Id == vm.MetodePembayaranId);
+        if (metodePembayaran is null) return BadRequest();
+
+        var pembayaran = new Pembayaran
+        {
+            TanggalBayar = DateTime.Now,
+            MetodePembayaran = metodePembayaran,
+            Pesanan = pesanan,
+            PesananId = pesanan.Id
+        };
+
+        pesanan.Pembayaran = pembayaran;
+        pesanan.Status = StatusPesanan.SudahBayar;
+
+        _appDbContext.TblPembayaran.Add(pembayaran);
+        _appDbContext.TblPesanan.Update(pesanan);
+
+        try
+        {
+            await _appDbContext.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error saat pembayaran");
+            ModelState.AddModelError(string.Empty, "Gagal saat memproses pembayaran");
+            return View(vm);
+        }
+
+        return RedirectToAction(nameof(DetailPesanan), new { id = vm.PesananId });
     }
 }

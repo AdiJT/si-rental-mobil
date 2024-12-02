@@ -1,29 +1,11 @@
-﻿@using SIRentalMobil.Web.Authentication
-@inject ISignInManager SignInManager
-
-@model DetailVM
+﻿@model Pesanan
 
 @{
-    var user = await SignInManager.GetUser();
+    ViewData["Title"] = "Detail Pesanan";
 }
 
-<section class="section__container judul__detail__mobil__container">
-    <div class="breadcrumbs">
-        <a href="index.html">Beranda</a>
-        <i class="ri-arrow-right-s-line separator"></i>
-        <a asp-action="@nameof(MobilController.Pencarian)" asp-route-luarKota="@Model.LuarKota" asp-route-sopir="@Model.Sopir"
-           asp-route-tanggalMulai="@Model.TanggalMulai" asp-route-tanggalAkhir="@Model.TanggalAkhir">Pencarian</a>
-        <i class="ri-arrow-right-s-line separator"></i>
-        <span class="current">Detail Mobil</span>
-    </div>
-
-    <div class="judul_halaman">
-        <h2>Detail Mobil</h2>
-    </div>
-</section>
-
-<section class="section__container detail_mobil_container">
-    <div class="sisi_kiri_detail_mobil col-md">
+<section class="section__container pemesanan_container">
+    <div class="sisi_kiri_pemesanan col-md-8">
         <!-- Utama Mobil -->
         <div class="utama_mobil">
             <div class="foto_mobil col-md-5">
@@ -51,12 +33,6 @@
                             <i class="ri-gas-station-line icon"></i>
                             <p>@Model.Mobil.JenisBensin.Humanize()</p>
                         </div>
-                        @if (user is not null && user.Role == UserRoles.Pemilik && user == Model.Mobil.Pemilik)
-                        {
-                            <div class="item">
-                                <p>Status : @Model.Mobil.Status.Humanize()</p>
-                            </div>
-                        }
                     </div>
 
                     <!-- Kolom Kanan -->
@@ -73,48 +49,44 @@
                 </div>
             </div>
         </div>
-        <!-- Deskripsi Tambahan Mobil -->
-        <div class="deskripsi_tambahan_mobil">
-            <div class="judul_deskripsi_tambahan_mobil">
-                <h3>Deskripsi Tambahan</h3>
+        <!-- Informasi Pemilik Mobil -->
+        <div class="informasi_pemilik_mobil">
+            <div class="judul_informasi_pemilik_mobil">
+                <h3>Informasi Pemilik</h3>
             </div>
-            <div class="isi_deskripsi_tambahan_mobil">
-                <p>@Model.Mobil.Dekripsi</p>
+            <div class="group_informasi_pemilik">
+                <div class="nama_pemilik col-md-4">
+                    <p>Nama Lengkap</p>
+                    <h5>@Model.Mobil.Pemilik.Nama</h5>
+                </div>
+                <div class="nomorhp_pemilik col-md-3">
+                    <p>Nomor Telepon</p>
+                    <h5>@Model.Mobil.Pemilik.NoHP</h5>
+                </div>
+                <div class="alamat_pemilik col-md-5">
+                    <p>Alamat</p>
+                    <h5>@Model.Mobil.Pemilik.Alamat</h5>
+                </div>
             </div>
         </div>
-
-        @if (user is null || user.Role != UserRoles.Pemilik || user != Model.Mobil.Pemilik)
-        {
-            <!-- Informasi Pemilik Mobil -->
-            <div class="informasi_pemilik_mobil">
-                <div class="judul_informasi_pemilik_mobil">
-                    <h3>Informasi Pemilik</h3>
-                </div>
-                <div class="group_informasi_pemilik">
-                    <div class="nama_pemilik col-md-4">
-                        <p>Nama Lengkap</p>
-                        <h5>@Model.Mobil.Pemilik.Nama</h5>
-                    </div>
-                    <div class="nomorhp_pemilik col-md-3">
-                        <p>Nomor Telepon</p>
-                        <h5>@Model.Mobil.Pemilik.NoHP</h5>
-                    </div>
-                    <div class="alamat_pemilik col-md-5">
-                        <p>Alamat</p>
-                        <h5>@Model.Mobil.Pemilik.Alamat</h5>
-                    </div>
-                </div>
+        <!-- Informasi Penyewa -->
+        <div class="apakah_fasilitas_sopir">
+            <div class="judul_apakah_fasilitas_sopir">
+                <h3>Fasilitas Sopir</h3>
             </div>
-        }
+            <div class="input_grup">
+                <input type="text" name="kode" value="@(Model.Sopir ? "Menggunakan Sopir" : "Tidak Menggunakan Sopir")" readonly />
+            </div>
+        </div>
     </div>
-
-    <div class="sisi_kanan_detail_mobil col-md-4">
+    <div class="sisi_kanan_pemesanan col-md-4">
         <div class="pengsticky">
             <div class="rincian_pesanan_detail_mobil">
                 <div class="judul_rincian_pesanan">
                     <h3>Rincian Pesanan</h3>
                 </div>
                 <div class="isi_rincian_pesanan">
+                    <p>Status : @Model.Status.Humanize()</p>
                     <div class="item">
                         <i class="ri-map-pin-line"></i>
                         <p>@(Model.LuarKota ? "Luar Kota" : "Dalam Kota")</p>
@@ -125,7 +97,7 @@
                     </div>
                     <div class="item">
                         <i class="ri-calendar-todo-line"></i>
-                        <p>@Model.TanggalMulai.ToString("dd MMMM yyyy", Localization.CultureInfo) - @Model.TanggalAkhir.ToString("dd MMMM yyyy", Localization.CultureInfo)</p>
+                        <p>@Model.TanggalAwalSewa.ToString("dd MMMM yyyy", Localization.CultureInfo) - @Model.TanggalAkhirSewa.ToString("dd MMMM yyyy", Localization.CultureInfo)</p>
                     </div>
                 </div>
             </div>
@@ -159,21 +131,23 @@
                             <p>@Pesanan.TarifSopir.ToString("C2", Localization.CultureInfo)</p>
                         </div>
                     }
+
                     <div class="fasilitas_sopir">
                         <h5>Tarif Aplikasi</h5>
                         <p>@Pesanan.TarifAplikasi.ToString("C2", Localization.CultureInfo)</p>
                     </div>
                     <div class="fasilitas_sopir">
                         <h6>Total Harga untuk @Model.JumlahHariSewa hari:</h6>
-                        <p>@(((Model.Mobil.Tarif + (Model.LuarKota ? Pesanan.TarifLuarKota : 0d)) * Model.JumlahHariSewa + (Model.Sopir ? Pesanan.TarifSopir : 0) + Pesanan.TarifAplikasi).ToString("C2", Localization.CultureInfo))</p>
+                        <p>@Model.TotalHarga.ToString("C2", Localization.CultureInfo)</p>
                     </div>
                 </div>
             </div>
-            <div class="tombol_lanjutkan_pemesanan">
-                <a asp-area="" asp-controller="Penyewa" asp-action="TambahPesanan" asp-route-sopir="@Model.Sopir" asp-route-luarKota="@Model.LuarKota"
-                   asp-route-tanggalMulai="@Model.TanggalMulai" asp-route-tanggalAkhir="@Model.TanggalAkhir" asp-route-id="@Model.Mobil.Id"
-                   class="btn">Lanjutkan Pemesanan</a>
-            </div>
+            @if (Model.Status == StatusPesanan.BelumBayar)
+            {
+                <div class="tombol_lanjutkan_pemesanan">
+                    <a asp-action="@nameof(PenyewaController.Pembayaran)" asp-route-id="@Model.Id" class="btn">Lanjutkan Pembayaran</a>
+                </div>
+            }
         </div>
     </div>
 </section>

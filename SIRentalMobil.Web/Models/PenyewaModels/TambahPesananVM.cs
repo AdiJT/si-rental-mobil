@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SIRentalMobil.Web.Models.PenyewaModels;
 
-public class PemesananVM
+public class TambahPesananVM
 {
     [Required]
     public required int MobilId { get; set; }

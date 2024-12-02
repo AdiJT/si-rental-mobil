@@ -1,7 +1,7 @@
 ﻿@using SIRentalMobil.Web.Authentication
 @inject ISignInManager SignInManager
 
-@model PemesananVM
+@model TambahPesananVM
 
 @{
     ViewData["Title"] = "Pemesanan";
@@ -66,10 +66,12 @@
                 <div class="input_grup mb-3">
                     <input asp-for="@Model.TanggalMulai" id="start-date" value="@Model.TanggalMulai.ToString("yyyy-dd-MM", CultureInfo.InvariantCulture)" type="text" />
                 </div>
+                <span asp-validation-for="@Model.TanggalMulai" class="form-text text-danger"></span>
                 <label asp-for="@Model.TanggalAkhir"></label>
                 <div class="input_grup mb-3">
                     <input asp-for="@Model.TanggalAkhir" id="end-date" value="@Model.TanggalAkhir.ToString("yyyy-dd-MM", CultureInfo.InvariantCulture)" type="text" />
                 </div>
+                <span asp-validation-for="@Model.TanggalAkhir" class="form-text text-danger"></span>
 
                 <input asp-for="@Model.MobilId" readonly hidden />
 
@@ -79,3 +81,7 @@
             </div>
     </section>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
