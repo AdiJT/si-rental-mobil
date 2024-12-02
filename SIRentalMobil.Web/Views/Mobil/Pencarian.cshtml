@@ -25,12 +25,12 @@
         </div>
         <div class="input__group">
             <label>Tanggal Mulai</label>
-            <input type="text" asp-for="@Model.TanggalMulai" id="start-date" placeholder="Pilih tanggal mulai" required />
+            <input type="text" asp-for="@Model.TanggalMulai" id="start-date" value="@Model.TanggalMulai.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)" placeholder="Pilih tanggal mulai" required />
             <span asp-validation-for="@Model.TanggalMulai"></span>
         </div>
         <div class="input__group">
             <label>Tanggal Akhir</label>
-            <input type="text" asp-for="@Model.TanggalAkhir" id="end-date" placeholder="Pilih tanggal akhir" required />
+            <input type="text" asp-for="@Model.TanggalAkhir" id="end-date" value="@Model.TanggalAkhir.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)" placeholder="Pilih tanggal akhir" required />
             <span asp-validation-for="@Model.TanggalAkhir"></span>
         </div>
         <button class="btn">Cari <i class="ri-search-line"></i></button>

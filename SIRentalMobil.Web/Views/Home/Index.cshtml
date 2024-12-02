@@ -36,11 +36,11 @@
         </div>
         <div class="input__group">
             <label>Tanggal Mulai</label>
-            <input type="text" name="tanggalMulai" value="@DateOnly.FromDateTime(DateTime.Now).ToString(CultureInfo.InvariantCulture)" id="start-date" placeholder="Pilih tanggal mulai" required />
+            <input type="text" name="tanggalMulai" value="@DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)" id="start-date" placeholder="Pilih tanggal mulai" required />
         </div>
         <div class="input__group">
             <label>Tanggal Akhir</label>
-            <input type="text" name="tanggalAkhir" value="@DateOnly.FromDateTime(DateTime.Now).ToString(CultureInfo.InvariantCulture)" id="end-date" placeholder="Pilih tanggal akhir" required />
+            <input type="text" name="tanggalAkhir" value="@DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)" id="end-date" placeholder="Pilih tanggal akhir" required />
         </div>
         <button class="btn">Cari <i class="ri-search-line"></i></button>
     </form>

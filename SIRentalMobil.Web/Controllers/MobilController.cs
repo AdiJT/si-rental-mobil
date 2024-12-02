@@ -77,17 +77,18 @@ public class MobilController : Controller
 
         if (mobil is null) return NotFound();
 
-        var jumlahHari = 1;
-        if (tanggalMulai is not null && tanggalAkhir is not null)
-            jumlahHari = (int)Math.Ceiling(TimeSpan.FromDays(tanggalAkhir.Value.DayNumber - tanggalMulai.Value.DayNumber).TotalDays) + 1;
+        tanggalMulai ??= DateOnly.FromDateTime(DateTime.Now);
+        tanggalAkhir ??= DateOnly.FromDateTime(DateTime.Now);
+
+        var jumlahHari = (int)Math.Ceiling(TimeSpan.FromDays(tanggalAkhir.Value.DayNumber - tanggalMulai.Value.DayNumber).TotalDays) + 1;
 
         return View(new DetailVM
         {
             Mobil = mobil,
-            Sopir = sopir,
+            Sopir = sopir ?? false,
             LuarKota = luarKota,
-            TanggalMulai = tanggalMulai,
-            TanggalAkhir = tanggalAkhir,
+            TanggalMulai = tanggalMulai.Value,
+            TanggalAkhir = tanggalAkhir.Value,
             JumlahHariSewa = jumlahHari
         });
     }

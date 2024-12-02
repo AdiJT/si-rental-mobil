@@ -155,10 +155,7 @@
                         </div>
                         <div class="item">
                             <i class="ri-calendar-todo-line"></i>
-                            @if (Model.TanggalMulai is not null && Model.TanggalAkhir is not null)
-                            {
-                                <p>@Model.TanggalMulai.Value.ToString("dd MMMM yyyy", Localization.CultureInfo) - @Model.TanggalAkhir.Value.ToString("dd MMMM yyyy", Localization.CultureInfo)</p>
-                            }
+                            <p>@Model.TanggalMulai.ToString("dd MMMM yyyy", Localization.CultureInfo) - @Model.TanggalAkhir.ToString("dd MMMM yyyy", Localization.CultureInfo)</p>
                         </div>
                     </div>
                 </div>
@@ -167,19 +164,16 @@
                         <h3>Rincian Pesanan</h3>
                     </div>
                     <div class="isi_rincian_harga">
-                        <h5>Harga untuk @Model.JumlahHariSewa hari:</h5>
-                        <div class="fasilitas_sopir mb-1">
-                            <h6>Tanpa Sopir:</h6>
-                            <p>@((Model.Mobil.Tarif * Model.JumlahHariSewa).ToString("C2", Localization.CultureInfo))</p>
-                        </div>
                         <div class="fasilitas_sopir">
-                            <h6>Dengan Sopir:</h6>
-                            <p>@(((Model.Mobil.Tarif + 100_000d) * Model.JumlahHariSewa).ToString("C2", Localization.CultureInfo))</p>
+                            <h6>Harga untuk @Model.JumlahHariSewa hari:</h6>
+                            <p>@(((Model.Mobil.Tarif + (Model.LuarKota ? Pesanan.TarifLuarKota : 0d)) * Model.JumlahHariSewa + (Model.Sopir ? Pesanan.TarifSopir : 0)).ToString("C2", Localization.CultureInfo))</p>
                         </div>
                     </div>
                 </div>
                 <div class="tombol_lanjutkan_pemesanan">
-                    <a asp-area="" asp-controller="Penyewa" asp-action="Pemesanan" class="btn">Lanjutkan Pemesanan</a>
+                    <a asp-area="" asp-controller="Penyewa" asp-action="Pemesanan" asp-route-sopir="@Model.Sopir" asp-route-luarKota="@Model.LuarKota"
+                    asp-route-tanggalMulai="@Model.TanggalMulai" asp-route-tanggalAkhir="@Model.TanggalAkhir" asp-route-id="@Model.Mobil.Id"
+                       class="btn">Lanjutkan Pemesanan</a>
                 </div>
             </div>
         </div>
