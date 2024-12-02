@@ -183,6 +183,17 @@ input, select, textarea {
     cursor: pointer;
 }
 
+.btn-success {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btn-danger {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
 /* Input Style */
 .input_grup {
     position: relative;
@@ -864,7 +875,7 @@ input[type="radio"] {
 /* Pesanan Masuk Container */
 
 .pesanan__masuk__container {
-    padding: 1rem 1rem !important;
+    padding: 0rem 1rem 1rem !important;
 }
 
 .judul_pesanan_masuk {
