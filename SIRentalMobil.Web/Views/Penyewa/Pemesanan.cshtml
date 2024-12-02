@@ -72,78 +72,10 @@
                 </div>
 
                 <input asp-for="@Model.MobilId" readonly hidden />
-                <input asp-for="@Model.JumlahHariSewa" hidden />
 
             </div>
             <div class="tombol_lanjutkan_pemesanan">
                 <button type="submit" class="btn w-100">Pesan Mobil</button>
             </div>
-            @* <!-- Informasi Penjemputan -->
-            <div class="informasi_penjemputan_pemesanan">
-            <div class="judul_informasi_penjemputan_pemesanan">
-            <h3>Detail Penjemputan</h3>
-            </div>
-            <label>Tanggal Penjemputan</label>
-            <div class="input_grup">
-            <input type="date" name="tanggalLahir" value="2024-11-18" readonly required />
-            <label for="tanggalLahir"></label>
-            </div>
-            <label>Jam Penjemputan</label>
-            <div class="input_grup">
-            <input type="text" id="jam" name="jam" value="12:00" readonly required />
-            </div>
-            <div class="input_grup">
-            <input type="text" name="kode" value="" required />
-            <label for="kode">Alamat*</label>
-            </div>
-            <label>Keterangan Tambahan</label>
-            <div class="input_grup">
-            <textarea name="alamat" rows="4" required></textarea>
-            </div>
-            </div>
-            <!-- Informasi Pengembalian -->
-            <div class="informasi_pengembalian_pemesanan">
-            <div class="judul_informasi_pengembalian_pemesanan">
-            <h3>Detail Pengembalian</h3>
-            </div>
-            <label>Tanggal Pengembalian</label>
-            <div class="input_grup">
-            <input type="date" name="tanggalLahir" value="2024-11-18" readonly required />
-            <label for="tanggalLahir"></label>
-            </div>
-            <label>Jam Pengembalian</label>
-            <div class="input_grup">
-            <input type="text" id="jam" name="jam" value="12:00" readonly required />
-            </div>
-            <div class="input_grup">
-            <input type="text" name="kode" value="" required />
-            <label for="kode">Alamat*</label>
-            </div>
-            <label>Keterangan Tambahan</label>
-            <div class="input_grup">
-            <textarea name="alamat" rows="4" required></textarea>
-            </div>
-            </div> *@
-        </div>
-        @* <div class="sisi_kanan_pemesanan col-md-4">
-        <div class="pengsticky">
-        <div class="rincian_harga_detail_mobil">
-        <div class="judul_rincian_harga">
-        <h3>Rincian Pesanan</h3>
-        </div>
-        <div class="isi_rincian_harga">
-        <h5>Harga untuk 1 hari:</h5>
-        <div class="fasilitas_sopir mb-1">
-        <h6>Tanpa Sopir:</h6>
-        <p>Rp.500.000</p>
-        </div>
-        <div class="fasilitas_sopir">
-        <h6>Dengan Sopir:</h6>
-        <p>Rp.700.000</p>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div> *@
     </section>
 </form>

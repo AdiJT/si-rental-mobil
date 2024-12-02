@@ -31,7 +31,7 @@ public class MobilController : Controller
 
     public async Task<IActionResult> Pencarian(
         bool luarKota = false,
-        bool? sopir = null,
+        bool sopir = false,
         DateOnly? tanggalMulai = null,
         DateOnly? tanggalAkhir = null)
     {
@@ -44,8 +44,8 @@ public class MobilController : Controller
         if (luarKota)
             daftarMobil = daftarMobil.Where(m => m.LuarKota).ToList();
 
-        if (sopir is not null)
-            daftarMobil = daftarMobil.Where(m => m.Sopir == sopir).ToList();
+        if (sopir)
+            daftarMobil = daftarMobil.Where(m => m.Sopir).ToList();
 
         tanggalMulai ??= DateOnly.FromDateTime(DateTime.Now);
         tanggalAkhir ??= DateOnly.FromDateTime(DateTime.Now);
@@ -67,7 +67,7 @@ public class MobilController : Controller
     public async Task<IActionResult> Detail(
         int id,
         bool luarKota = false,
-        bool? sopir = null,
+        bool sopir = false,
         DateOnly? tanggalMulai = null,
         DateOnly? tanggalAkhir = null)
     {
@@ -85,7 +85,7 @@ public class MobilController : Controller
         return View(new DetailVM
         {
             Mobil = mobil,
-            Sopir = sopir ?? false,
+            Sopir = sopir,
             LuarKota = luarKota,
             TanggalMulai = tanggalMulai.Value,
             TanggalAkhir = tanggalAkhir.Value,

@@ -33,15 +33,11 @@ public class PenyewaController : Controller
         var mobil = await _appDbContext.TblMobil.FirstOrDefaultAsync(m => m.Id == id);
         if (mobil is null) return NotFound();
 
-        var jumlahHari = (int)Math.Ceiling(TimeSpan.FromDays(tanggalAkhir.DayNumber - tanggalMulai  .DayNumber).TotalDays) + 1;
-
         return View(new PemesananVM
         {
             MobilId = id,
-            Mobil = mobil,
             TanggalAkhir = tanggalAkhir,
             TanggalMulai = tanggalMulai,
-            JumlahHariSewa = jumlahHari,
             LuarKota = luarKota,
             Sopir = sopir
         });
@@ -50,6 +46,8 @@ public class PenyewaController : Controller
     [HttpPost]
     public async Task<IActionResult> Pemesanan(PemesananVM vm)
     {
+        if (!ModelState.IsValid) return View(vm);
+
         var mobil = await _appDbContext.TblMobil.FirstOrDefaultAsync(m => m.Id == vm.MobilId);
         if(mobil is null) return NotFound();
 
@@ -82,6 +80,24 @@ public class PenyewaController : Controller
         }
 
         return RedirectToAction("DetailPesanan", new { id=pesanan.Id });
+    }
+
+    public async Task<IActionResult> DetailPesanan(int id)
+    {
+        var user = await _signInManager.GetUser();
+        if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
+
+        var pesanan = await _appDbContext.TblPesanan
+            .Include(p => p.Mobil).ThenInclude(m => m.Pemilik)
+            .Include(p => p.Penyewa)
+            .Include(p => p.Pembayaran)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if (pesanan is null) return NotFound();
+
+        if (pesanan.Penyewa != user) return Unauthorized();
+
+        return View(pesanan);
     }
 
     public IActionResult Pembayaran()

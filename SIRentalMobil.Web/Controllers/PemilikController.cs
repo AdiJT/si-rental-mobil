@@ -37,6 +37,10 @@ public class PemilikController : Controller
 
     public async Task<IActionResult> DetailPemesanan(int id)
     {
+        var user = await _signInManager.GetUser();
+
+        if (user is null || user.Role != UserRoles.Pemilik) return Unauthorized();
+
         var pesanan = await _appDbContext.TblPesanan
             .Include(p => p.Penyewa)
             .Include(p => p.Mobil).ThenInclude(m => m.Pemilik)
@@ -44,6 +48,8 @@ public class PemilikController : Controller
             .FirstOrDefaultAsync(p => p.Id == id);
 
         if(pesanan is null) return NotFound();
+
+        if (pesanan.Mobil.Pemilik != user) return Unauthorized();
 
         return View(pesanan);
     }
