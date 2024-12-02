@@ -75,7 +75,7 @@ namespace SIRentalMobil.Web.Controllers
 
             if (await _appDbContext.TblUser.AnyAsync(u => u.NIK == vm.NIK))
             {
-                ModelState.AddModelError(nameof(DaftarVM.NIK), $"Email '{vm.NIK}' sudah digunakan");
+                ModelState.AddModelError(nameof(DaftarVM.NIK), $"NIK '{vm.NIK}' sudah digunakan");
                 return View(vm);
             }
 
