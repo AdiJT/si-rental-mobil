@@ -74,13 +74,15 @@ public class PenyewaController : Controller
         var user = await _signInManager.GetUser();
         if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
 
+        var time = TimeOnly.FromDateTime(DateTime.Now);
+
         var pesanan = new Pesanan
         {
             LuarKota = vm.LuarKota,
             Sopir = vm.Sopir,
             TanggalPesan = DateTime.Now,
-            TanggalAwalSewa = vm.TanggalMulai.ToDateTime(TimeOnly.FromDateTime(DateTime.Now)),
-            TanggalAkhirSewa = vm.TanggalAkhir.ToDateTime(TimeOnly.FromDateTime(DateTime.Now)),
+            TanggalAwalSewa = vm.TanggalMulai.ToDateTime(time),
+            TanggalAkhirSewa = vm.TanggalAkhir.ToDateTime(time),
             Mobil = mobil,
             Penyewa = user,
             Status = StatusPesanan.BelumDiterima

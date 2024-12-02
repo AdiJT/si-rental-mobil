@@ -16,7 +16,7 @@ public class Pesanan : Entity
     public bool LuarKota { get; set; }
     public StatusPesanan Status { get; set; }
 
-    public int JumlahHariSewa => (int)Math.Ceiling(TanggalAkhirSewa.Subtract(TanggalAwalSewa).TotalDays);
+    public int JumlahHariSewa => (int)Math.Ceiling(TanggalAkhirSewa.Subtract(TanggalAwalSewa).TotalDays) + 1;
     public double TotalHarga => 
         (Mobil.Tarif + (LuarKota ? TarifLuarKota : 0)) * JumlahHariSewa + 
         (Sopir ? TarifSopir : 0) + 
