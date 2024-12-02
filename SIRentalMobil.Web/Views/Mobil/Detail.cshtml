@@ -51,6 +51,14 @@
                             <i class="ri-gas-station-line icon"></i>
                             <p>@Model.Mobil.JenisBensin.Humanize()</p>
                         </div>
+                        <div class="item">
+                            <i class="ri-gas-station-line icon"></i>
+                            <p>@(Model.Mobil.Sopir ? "Ada Sopir" : "Tidak Ada Sopir")</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-gas-station-line icon"></i>
+                            <p>@(Model.Mobil.LuarKota ? "Bisa Luar Kota" : "Hanya Dalam Kota")</p>
+                        </div>
                         @if (user is not null && user.Role == UserRoles.Pemilik && user == Model.Mobil.Pemilik)
                         {
                             <div class="item">

@@ -73,6 +73,12 @@
                             <div>
                                 <span><i class="ri-gas-station-line"></i></span> @mobil.JenisBensin.Humanize()
                             </div>
+                            <div>
+                                <span><i class="ri-gas-station-line"></i></span> @(mobil.Sopir ? "Ada Sopir" : "Tidak Ada Sopir")
+                            </div>
+                            <div>
+                                <span><i class="ri-gas-station-line"></i></span> @(mobil.LuarKota ? "Bisa Luar Kota" : "Hanya Dalam Kota")
+                            </div>
                         </div>
                         <hr />
                         <div class="deals__card__footer">
