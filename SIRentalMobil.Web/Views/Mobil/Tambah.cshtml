@@ -113,6 +113,12 @@
                 </div>
                 <span asp-validation-for="@Model.MaksHariSewa"></span>
 
+                <div class="input_grup">
+                    <input asp-for="@Model.Tarif" />
+                    <label asp-for="@Model.Tarif"></label>
+                </div>
+                <span asp-validation-for="@Model.Tarif"></span>
+
                 <label>Fasilitas Sopir</label>
                 <div class="radio_grup mb-2 mt-1">
                     <input type="radio" asp-for="@Model.Sopir" value="@false" checked>
