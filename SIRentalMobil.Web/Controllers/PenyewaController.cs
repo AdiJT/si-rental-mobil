@@ -86,7 +86,10 @@ public class PenyewaController : Controller
             Status = StatusPesanan.BelumDiterima
         };
 
+        mobil.Status = StatusMobil.TidakTersedia;
+
         _appDbContext.TblPesanan.Add(pesanan);
+        _appDbContext.TblMobil.Update(mobil);
 
         try
         {
