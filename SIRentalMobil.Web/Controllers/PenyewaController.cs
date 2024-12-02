@@ -30,6 +30,17 @@ public class PenyewaController : Controller
 
     public async Task<IActionResult> TambahPesanan(int id, bool sopir, bool luarKota, DateOnly tanggalMulai, DateOnly tanggalAkhir)
     {
+        var user = await _signInManager.GetUser();
+        if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
+
+        var bisaPesan = !await _appDbContext.TblPesanan
+            .AnyAsync(p =>
+                p.Penyewa == user &&
+                (p.Status == StatusPesanan.BelumDiterima || p.Status == StatusPesanan.BelumBayar ||
+                    (p.Status == StatusPesanan.SudahBayar && p.TanggalAkhirSewa <= DateTime.Now)));
+
+        if (!bisaPesan) return View("TidakBisaPesan");
+
         var mobil = await _appDbContext.TblMobil.FirstOrDefaultAsync(m => m.Id == id);
         if (mobil is null) return NotFound();
 
@@ -49,7 +60,7 @@ public class PenyewaController : Controller
         if (!ModelState.IsValid) return View(vm);
 
         var mobil = await _appDbContext.TblMobil.FirstOrDefaultAsync(m => m.Id == vm.MobilId);
-        if(mobil is null) return NotFound();
+        if (mobil is null) return NotFound();
 
         var user = await _signInManager.GetUser();
         if (user is null || user.Role != UserRoles.Penyewa) return Unauthorized();
@@ -79,7 +90,7 @@ public class PenyewaController : Controller
             return View(vm);
         }
 
-        return RedirectToAction("DetailPesanan", new { id=pesanan.Id });
+        return RedirectToAction("DetailPesanan", new { id = pesanan.Id });
     }
 
     public async Task<IActionResult> DetailPesanan(int id)

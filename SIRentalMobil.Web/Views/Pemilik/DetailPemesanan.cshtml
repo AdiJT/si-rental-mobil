@@ -153,9 +153,38 @@
                     <h3>Rincian Pesanan</h3>
                 </div>
                 <div class="isi_rincian_harga">
-                    <h5>Total untuk @Model.JumlahHariSewa hari :</h5>
-                    <p>Dengan tarif tambahan luar kota dan menggunakan sopir :</p>
                     <div class="fasilitas_sopir">
+                        <h5>Tarif/Hari:</h5>
+                    </div>
+                    @if (Model.LuarKota)
+                    {
+                        <div class="fasilitas_sopir">
+                            <h5>Luar Kota</h5>
+                            <p>@((Model.Mobil.Tarif + Pesanan.TarifLuarKota).ToString("C2", Localization.CultureInfo))</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="fasilitas_sopir">
+                            <h5>Dalam Kota</h5>
+                            <p>@Model.Mobil.Tarif.ToString("C2", Localization.CultureInfo)</p>
+                        </div>
+                    }
+
+                    @if (Model.Sopir)
+                    {
+                        <div class="fasilitas_sopir">
+                            <h5>Tarif Sopir</h5>
+                            <p>@Pesanan.TarifSopir.ToString("C2", Localization.CultureInfo)</p>
+                        </div>
+                    }
+
+                    <div class="fasilitas_sopir">
+                        <h5>Tarif Aplikasi</h5>
+                        <p>@Pesanan.TarifAplikasi.ToString("C2", Localization.CultureInfo)</p>
+                    </div>
+                    <div class="fasilitas_sopir">
+                        <h6>Total Harga untuk @Model.JumlahHariSewa hari:</h6>
                         <p>@Model.TotalHarga.ToString("C2", Localization.CultureInfo)</p>
                     </div>
                 </div>
