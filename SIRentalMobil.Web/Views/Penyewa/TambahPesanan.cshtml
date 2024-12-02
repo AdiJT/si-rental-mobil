@@ -1,11 +1,16 @@
-﻿@using SIRentalMobil.Web.Authentication
+﻿@using Microsoft.EntityFrameworkCore
+@using SIRentalMobil.Infrastructure.Database
+@using SIRentalMobil.Web.Authentication
 @inject ISignInManager SignInManager
+@inject AppDbContext AppDbContext;
 
 @model TambahPesananVM
 
 @{
     ViewData["Title"] = "Pemesanan";
     var user = await SignInManager.GetUser()!;
+
+    var mobil = await AppDbContext.TblMobil.FirstAsync(m => m.Id == Model.MobilId);
 }
 
 <section class="section__container judul__detail__mobil__container">
@@ -52,15 +57,22 @@
                 <div class="radio_grup mb-3">
                     <input type="radio" asp-for="@Model.Sopir" value="@false">
                     <label class="ps-1 pe-2" asp-for="@Model.Sopir">Tidak Menggunakan Sopir</label><br>
-                    <input class="ps-1" type="radio" asp-for="@Model.Sopir" value="@true">
-                    <label class="ps-1" asp-for="@Model.Sopir">Menggunakan Sopir</label>
+                    @if (mobil.Sopir)
+                    {
+                        <input class="ps-1" type="radio" asp-for="@Model.Sopir" value="@true">
+                        <label class="ps-1" asp-for="@Model.Sopir">Menggunakan Sopir</label>
+                    }
                 </div>
                 <label asp-for="@Model.LuarKota">Jangkauan Penggunaan</label>
                 <div class="radio_grup mb-3">
                     <input type="radio" asp-for="@Model.LuarKota" value="@false">
                     <label class="ps-1 pe-2" asp-for="@Model.LuarKota">Dalam Kota</label><br>
-                    <input class="ps-1" type="radio" asp-for="@Model.LuarKota" value="@true">
-                    <label class="ps-1" asp-for="@Model.LuarKota">Luar Kota</label>
+
+                    @if (mobil.LuarKota)
+                    {
+                        <input class="ps-1" type="radio" asp-for="@Model.LuarKota" value="@true">
+                        <label class="ps-1" asp-for="@Model.LuarKota">Luar Kota</label>
+                    }
                 </div>
                 <label asp-for="@Model.TanggalMulai"></label>
                 <div class="input_grup mb-3">
