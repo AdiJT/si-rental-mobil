@@ -63,7 +63,7 @@
 
                 <label asp-for="@Model.JenisTransmisi"></label>
                 <div class="input_grup">
-                    <select asp-for="@Model.JenisTransmisi">
+                    <select class="form-control" asp-for="@Model.JenisTransmisi">
                         @foreach (var jenisTransmisi in Enum.GetValues<JenisTransmisi>())
                         {
                             <option value="@jenisTransmisi">@jenisTransmisi.Humanize()</option>
@@ -74,7 +74,7 @@
 
                 <label asp-for="@Model.JenisBensin"></label>
                 <div class="input_grup">
-                    <select asp-for="@Model.JenisBensin">
+                    <select class="form-control" asp-for="@Model.JenisBensin">
                         @foreach (var jenisBensin in Enum.GetValues<JenisBensin>())
                         {
                             <option value="@jenisBensin">@jenisBensin.Humanize()</option>
@@ -98,12 +98,12 @@
                 </div>
 
                 <label>Area Pemakaian</label>
-                <div class="radio_grup mb-2 mt-1">
+                <div class="radio_grup mb-4 mt-1">
                     <input type="radio" asp-for="@Model.LuarKota" value="@false" checked>
-                    <label asp-for="@Model.LuarKota">Dalam Kota</label><br>
+                    <label class="ps-2 pe-3" asp-for="@Model.LuarKota">Dalam Kota</label><br>
 
-                    <input class="ps-1" asp-for="@Model.LuarKota" type="radio" value="@true">
-                    <label class="ps-1" asp-for="@Model.LuarKota">Luar Kota</label>
+                    <input asp-for="@Model.LuarKota" type="radio" value="@true">
+                    <label class="ps-2" asp-for="@Model.LuarKota">Luar Kota</label>
                 </div>
                 <span asp-validation-for="@Model.LuarKota"></span>
 
@@ -116,10 +116,10 @@
                 <label>Fasilitas Sopir</label>
                 <div class="radio_grup mb-2 mt-1">
                     <input type="radio" asp-for="@Model.Sopir" value="@false" checked>
-                    <label asp-for="@Model.Sopir">Tanpa Sopir</label><br>
+                    <label class="ps-2 pe-3" asp-for="@Model.Sopir">Tanpa Sopir</label><br>
 
-                    <input class="ps-1" asp-for="@Model.Sopir" type="radio" value="@true">
-                    <label class="ps-1" asp-for="@Model.Sopir">Dengan Sopir</label>
+                    <input asp-for="@Model.Sopir" type="radio" value="@true">
+                    <label class="ps-2" asp-for="@Model.Sopir">Dengan Sopir</label>
                 </div>
                 <span asp-validation-for="@Model.LuarKota"></span>
             </div>
