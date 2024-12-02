@@ -2,6 +2,10 @@
 @model DaftarVM
 
 <section class="section__container daftar_container">
+    <div class="judul_halaman mb-lg-4">
+        <h2>Daftar</h2>
+        <p>Buat akun untuk mulai menyewa atau menawarkan mobil Anda.</p>
+    </div>
     <form asp-action="@nameof(HomeController.Daftar)">
 
         <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>

@@ -347,7 +347,7 @@ input[type="radio"] {
     }
 
     .header__form .pencarian {
-        transform: translateY(0%) !important;
+        transform: translateY(-10%) !important;
     }
 }
 
@@ -468,7 +468,7 @@ input[type="radio"] {
 }
 
     .deals__card__footer h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 600;
         color: var(--text-dark);
     }
@@ -535,7 +535,7 @@ input[type="radio"] {
 
 .detail_mobil_container {
     display: flex;
-    padding: 2rem 1rem;
+    padding: 0rem 1rem;
     gap: 20px;
 }
 
@@ -552,6 +552,7 @@ input[type="radio"] {
     display: flex;
     padding-bottom: 20px;
     border-bottom: 1px solid #e7e7e7;
+    gap : 20px;
 }
 
 .detail_mobil .spesifikasi_mobil {
@@ -723,7 +724,7 @@ input[type="radio"] {
 
 .pemesanan_container {
     display: flex;
-    padding: 0rem 1rem;
+    padding: 0rem 0rem;
     gap: 20px;
 }
 
@@ -792,7 +793,7 @@ input[type="radio"] {
 
 .daftar_container {
     max-width: 800px;
-    padding: 1rem 1rem !important;
+    padding: 0rem 1rem 1rem !important;
 }
 
 
@@ -802,7 +803,7 @@ input[type="radio"] {
 
 .masuk_container {
     max-width: 600px;
-    padding: 1rem 1rem !important;
+    padding: 0rem 1rem 1rem !important;
 }
 
 /*=============================================================================================================================*\

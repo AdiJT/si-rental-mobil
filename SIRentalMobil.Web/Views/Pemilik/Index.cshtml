@@ -12,9 +12,21 @@
         .ToList();
 }
 
+<section class="section__container judul__detail__mobil__container">
+    <div class="breadcrumbs">
+        <a href="detail_mobil.html">Beranda</a>
+        <i class="ri-arrow-right-s-line separator"></i>
+        <span class="current">Dashboard Pemilik Mobil</span>
+    </div>
+
+    <div class="judul_halaman">
+        <h2>Dashboard Pemilik Mobil</h2>
+    </div>
+</section>
+
 <section class="section__container statistik__container">
     <div class="judul_statistik">
-        <h3>Tambah Mobil yang ingin disewakan</h3>
+        <h3>Tambah Mobil</h3>
     </div>
     <div class="isi_statistik">
         <a asp-area="" asp-controller="Mobil" asp-action="Tambah">
@@ -56,7 +68,7 @@
                         <span><i class="ri-gas-station-line"></i></span> @(mobil.Sopir ? "Ada Sopir" : "Tidak Ada Sopir")
                     </div>
                     <div>
-                        <span><i class="ri-gas-station-line"></i></span> @(mobil.LuarKota ? "Bisa Luar Kota" : "Hanya Dalam Kota")
+                        <span><i class="ri-gas-station-line"></i></span> @(mobil.LuarKota ? "Luar Kota" : "Dalam Kota")
                     </div>
                 </div>
                 <hr />

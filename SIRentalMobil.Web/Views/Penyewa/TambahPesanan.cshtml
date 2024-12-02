@@ -29,7 +29,7 @@
     <section class="section__container pemesanan_container">
         <div asp-validation-summary="All"></div>
 
-        <div class="sisi_kiri_pemesanan col-md-8">
+        <div class="sisi_kiri_pemesanan col-md-6">
             <!-- Informasi Penyewa -->
             <div class="informasi_penyewa_pemesanan">
                 <div class="judul_informasi_penyewa_pemesanan">
@@ -48,6 +48,9 @@
                     <input type="text" name="kode" value="@user!.Alamat" required readonly />
                 </div>
             </div>
+            
+        </div>
+        <div class="sisi_kanan_pemesanan col-md-6">
             <!-- Informasi Penyewa -->
             <div class="informasi_penyewa_pemesanan">
                 <div class="judul_informasi_penyewa_pemesanan">
@@ -91,6 +94,7 @@
             <div class="tombol_lanjutkan_pemesanan">
                 <button type="submit" class="btn w-100">Pesan Mobil</button>
             </div>
+        </div>
     </section>
 </form>
 

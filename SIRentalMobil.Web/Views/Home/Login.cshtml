@@ -1,6 +1,10 @@
 ﻿@model LoginVM
 
 <section class="section__container masuk_container">
+    <div class="judul_halaman mb-lg-4">
+        <h2>Masuk</h2>
+        <p>Masuk untuk mulai berbagi atau menyewa mobil!</p>
+    </div>
     <form asp-action="@nameof(HomeController.Login)">
         <div asp-validation-summary="ModelOnly" class="form-text text-danger"></div>
 
