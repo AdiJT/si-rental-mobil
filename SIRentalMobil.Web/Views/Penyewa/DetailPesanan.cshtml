@@ -45,7 +45,11 @@
                         </div>
                         <div class="item">
                             <i class="ri-gas-station-line icon"></i>
-                            <p>@Model.Mobil.JenisBensin.Humanize()</p>
+                            <p>@(Model.Mobil.Sopir ? "Ada Sopir" : "Tidak Ada Sopir")</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-gas-station-line icon"></i>
+                            <p>@(Model.Mobil.LuarKota ? "Luar Kota" : "Dalam Kota")</p>
                         </div>
                     </div>
 
@@ -58,6 +62,14 @@
                         <div class="item">
                             <i class="ri-steering-line icon"></i>
                             <p>@Model.Mobil.JenisTransmisi.Humanize()</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-gas-station-line icon"></i>
+                            <p>@Model.Mobil.JenisBensin.Humanize()</p>
+                        </div>
+                        <div class="item">
+                            <i class="ri-gas-station-line icon"></i>
+                            <p>Masksimal @Model.Mobil.MaksHariSewa Hari Sewa</p>
                         </div>
                     </div>
                 </div>
