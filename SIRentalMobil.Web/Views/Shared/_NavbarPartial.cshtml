@@ -25,11 +25,11 @@
         {
             if(user.Role == UserRoles.Pemilik)
             {
-                <li><a asp-area="" asp-controller="Pemilik" asp-action="Index">Dashboard</a></li>
+                <li><a asp-area="" asp-controller="Pemilik" asp-action="Index">Dashboard @UserRoles.Pemilik</a></li>
             }
             else
             {
-                <li><a asp-area="" asp-controller="Penyewa" asp-action="Index">Dashboard</a></li>
+                <li><a asp-area="" asp-controller="Penyewa" asp-action="Index">Dashboard @UserRoles.Penyewa</a></li>
             }
         }
     </ul>
